@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 
 function fetchJson(path) {
     const fichier = fs.readFileSync(path)
@@ -80,6 +81,78 @@ function createMatrix(sommets, arretes){
     return adj_matrix
 }
 
+function kruskal(sommets, arretes){
+    graph = new Array(sommets.length).fill(0)
+    ordered = fusionOrder(arretes)
+    for (i in ordered){
+        graph[ordered[i]["num_sommet1"]][ordered[i]["num_sommet2"]] = ordered[i]["temps_en_secondes"]
+        if (isCycle(graph)){
+            graph[ordered[i]["num_sommet1"]][ordered[i]["num_sommet2"]] = 0
+        }
+    }
+    return graph
+}
+
+function isCycle(graph) {
+    //function found on internet
+
+    const n = graph.length;
+    const visited = new Array(n).fill(false);
+    const parent = new Array(n).fill(-1);
+
+    for (let u = 0; u < n; u++) {
+        if (!visited[u]) {
+            const line = [];
+            line.push(u);
+            visited[u] = true;
+            parent[u] = u;
+
+            while (line.length > 0) {
+                const curent = line.shift();
+
+                for (let i = 0; i < n; i++) {
+                    if (graph[curent][i] > 0 && !visited[i]) {
+                        line.push(i);
+                        visited[i] = true;
+                        parent[i] = curent;
+                    } else if (graph[curent][i] > 0 && visited[i] && parent[curent] !== i) {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    return false
+}
+
+function fusionOrder(arretes) {
+    if (arretes.length <= 1) {
+        return arretes;
+    }
+
+    const mid = Math.floor(arretes.length / 2);
+    const left = fusionOrder(arretes.slice(0, mid));
+    const right = fusionOrder(arretes.slice(mid));
+
+    return merge(left, right);
+}
+
+function merge(left, right) {
+    let result = [];
+    let i = 0, j = 0;
+
+    while (i < left.length && j < right.length) {
+        if (left[i]["temps_en_secondes"] <= right[j]["temps_en_secondes"]) {
+            result.push(left[i]);
+            i++;
+        } else {
+            result.push(right[j]);
+            j++;
+        }
+    }
+
+    return result.concat(left.slice(i)).concat(right.slice(j));
+}
 
 arretes = fetchJson('../data/arretesV1.json')
 sommets = fetchJson('../data/sommetsV1.json')
@@ -87,3 +160,4 @@ sommets = fetchJson('../data/sommetsV1.json')
 adj_matrix = createMatrix(sommets, arretes)
 
 console.log(isConnexe(adj_matrix))
+console.log(isConnexe(kruskal(sommets, arretes)))
