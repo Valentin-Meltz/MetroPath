@@ -31,7 +31,7 @@ function isConnexe(matrix){
                 }
             }
         }
-    } while (!matricesEgales(prev_matrix, new_matrix))
+    } while (!equalMatrix(prev_matrix, new_matrix))
 
     //test de connexité
 
@@ -45,7 +45,7 @@ function isConnexe(matrix){
     return true
 }
 
-function matricesEgales(a, b) {
+function equalMatrix(a, b) {
     if (a.length !== b.length) return false;
 
     for (i in a) {
@@ -154,10 +154,43 @@ function merge(left, right) {
     return result.concat(left.slice(i)).concat(right.slice(j));
 }
 
+function dijkstra(graph, start) {
+    const n = graph.length;
+    const distances = new Array(n).fill(Infinity);
+    const previous = new Array(n).fill(null);
+    const visited = new Set();
+    const nodes = [];
+
+    for (let i = 0; i < n; i++) {
+        nodes.push(i);
+    }
+
+    distances[start] = 0;
+
+    while (nodes.length > 0) {
+        // Trie les sommets restants selon la distance la plus courte
+        nodes.sort((a, b) => distances[a] - distances[b]);
+        const closest = nodes.shift();
+
+        if (distances[closest] === Infinity) break;
+
+        visited.add(closest);
+
+        for (let neighbor = 0; neighbor < n; neighbor++) {
+            if (graph[closest][neighbor] > 0 && !visited.has(neighbor)) {
+                const newDist = distances[closest] + graph[closest][neighbor];
+                if (newDist < distances[neighbor]) {
+                    distances[neighbor] = newDist;
+                    previous[neighbor] = closest;
+                }
+            }
+        }
+    }
+
+    return { distances, previous };
+}
+
 arretes = fetchJson('../data/arretesV1.json')
 sommets = fetchJson('../data/sommetsV1.json')
 
 adj_matrix = createMatrix(sommets, arretes)
-
-console.log(isConnexe(adj_matrix))
-console.log(isConnexe(kruskal(sommets, arretes)))
