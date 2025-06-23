@@ -1,15 +1,24 @@
 <template>
-  <div id="app" class="w-screen h-screen">
-    <router-view />
+  <div class="flex flex-col min-h-screen">
+    <Navbar />
+    <main class="flex-grow">
+      <RouterView/>
+    </main>
+    <Footer />
   </div>
 </template>
 
 <script>
-export default {
-  name : "app"
+import Navbar from './components/Navbar.vue';
+import Footer from './components/Footer.vue';
+
+export default{
+  components : {
+    Navbar,
+    Footer,
+  }
 }
 </script>
 
 <style>
-
 </style>
