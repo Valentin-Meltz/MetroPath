@@ -1,6 +1,6 @@
-import script from '../controllers/version1.js';
+import * as script from '../models/version1.js';
 
-const getShorterPath = (req, res) => {
+export const getShorterPath = (req, res) => {
     const data = req.body;
     const depart = data.depart;
     const arrivee = data.arrivee;
@@ -12,7 +12,7 @@ const getShorterPath = (req, res) => {
     }
 }
 
-const getAllStations = (req, res) => {
+export const getAllStations = (req, res) => {
     try {
         const stations = script.getAllStations();
         res.status(200).json({ stations });

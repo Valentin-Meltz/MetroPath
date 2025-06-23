@@ -3,12 +3,12 @@ import path from 'path';
 import dotenv from 'dotenv';
 dotenv.config();
 
-function fetchJson(path) {
+export function fetchJson(path) {
     const fichier = fs.readFileSync(path)
     return JSON.parse(fichier)
 }
 
-function isConnexe(matrix){
+export function isConnexe(matrix){
     prev_matrix = matrix
     new_matrix = matrix
     do{
@@ -47,7 +47,7 @@ function isConnexe(matrix){
     return true
 }
 
-function equalMatrix(a, b) {
+export function equalMatrix(a, b) {
     if (a.length !== b.length) return false;
 
     for (let i in a) {
@@ -61,7 +61,7 @@ function equalMatrix(a, b) {
     return true;
 }
 
-function createMatrix(sommets, arretes){
+export function createMatrix(sommets, arretes){
     let adj_matrix = []
 
     //création des sommets
@@ -83,7 +83,7 @@ function createMatrix(sommets, arretes){
     return adj_matrix
 }
 
-function kruskal(sommets, arretes){
+export function kruskal(sommets, arretes){
     graph = new Array(sommets.length).fill(0)
     ordered = fusionOrder(arretes)
     for (let i in ordered){
@@ -95,7 +95,7 @@ function kruskal(sommets, arretes){
     return graph
 }
 
-function isCycle(graph) {
+export function isCycle(graph) {
     //function found on internet
 
     const n = graph.length;
@@ -127,7 +127,7 @@ function isCycle(graph) {
     return false
 }
 
-function fusionOrder(arretes) {
+export function fusionOrder(arretes) {
     if (arretes.length <= 1) {
         return arretes;
     }
@@ -139,7 +139,7 @@ function fusionOrder(arretes) {
     return merge(left, right);
 }
 
-function merge(left, right) {
+export function merge(left, right) {
     let result = [];
     let i = 0, j = 0;
 
@@ -156,7 +156,7 @@ function merge(left, right) {
     return result.concat(left.slice(i)).concat(right.slice(j));
 }
 
-function dijkstra(graph, start) {
+export function dijkstra(graph, start) {
     const n = graph.length;
     const distances = new Array(n).fill(Infinity);
     const previous = new Array(n).fill(null);
@@ -192,7 +192,7 @@ function dijkstra(graph, start) {
     return { distances, previous };
 }
 
-function shorterPath(start, end){
+export function shorterPath(start, end){
     const summits = "../Data/sommetsV1.json"
     const arretes = "../Data/arretesV1.json"
     const graph = createMatrix(fetchJson(summits), fetchJson(arretes));
@@ -230,7 +230,7 @@ function shorterPath(start, end){
     }
 }
 
-function getAllStations() {
+export function getAllStations() {
     const summits = "../Data/sommetsV1.json";
     return fetchJson(summits);
 }
