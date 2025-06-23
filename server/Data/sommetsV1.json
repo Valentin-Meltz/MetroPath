@@ -1,0 +1,2634 @@
+[
+    {
+        "num_sommet": 0,
+        "nom_sommet": " Abbesses ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 1,
+        "nom_sommet": " Alexandre Dumas ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 2,
+        "nom_sommet": " Alma Marceau ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 3,
+        "nom_sommet": " Alésia ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 4,
+        "nom_sommet": " Anatole France ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 5,
+        "nom_sommet": " Anvers ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 6,
+        "nom_sommet": " Argentine ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 7,
+        "nom_sommet": " Arts et Métiers ",
+        "numéro_ligne": "11 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 8,
+        "nom_sommet": " Arts et Métiers ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 9,
+        "nom_sommet": " Assemblée Nationale ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 10,
+        "nom_sommet": " Aubervilliers-Pantin, Quatre Chemins ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 11,
+        "nom_sommet": " Avenue Émile Zola ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 12,
+        "nom_sommet": " Avron ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 13,
+        "nom_sommet": " Barbès Rochechouart ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 14,
+        "nom_sommet": " Barbès Rochechouart ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 15,
+        "nom_sommet": " Basilique de Saint-Denis ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 1
+    },
+    {
+        "num_sommet": 16,
+        "nom_sommet": " Bastille ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 17,
+        "nom_sommet": " Bastille ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 18,
+        "nom_sommet": " Bastille ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 19,
+        "nom_sommet": " Bel Air ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 20,
+        "nom_sommet": " Belleville ",
+        "numéro_ligne": "11 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 21,
+        "nom_sommet": " Belleville ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 22,
+        "nom_sommet": " Bercy ",
+        "numéro_ligne": "14 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 23,
+        "nom_sommet": " Bercy ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 24,
+        "nom_sommet": " Bibliothèque François Mitterand ",
+        "numéro_ligne": "14 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 25,
+        "nom_sommet": " Billancourt ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 26,
+        "nom_sommet": " Bir-Hakeim ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 27,
+        "nom_sommet": " Blanche ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 28,
+        "nom_sommet": " Bobigny, Pablo Picasso ",
+        "numéro_ligne": "5 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 29,
+        "nom_sommet": " Bobigny-Pantin, Raymond Queneau ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 30,
+        "nom_sommet": " Boissière ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 31,
+        "nom_sommet": " Bolivar ",
+        "numéro_ligne": "7bis ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 32,
+        "nom_sommet": " Bonne Nouvelle ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 33,
+        "nom_sommet": " Bonne Nouvelle ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 34,
+        "nom_sommet": " Botzaris ",
+        "numéro_ligne": "7bis ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 35,
+        "nom_sommet": " Boucicaut ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 36,
+        "nom_sommet": " Boulogne, Jean Jaurès ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 37,
+        "nom_sommet": " Boulogne, Pont de Saint-Cloud, Rond Point Rhin et Danube ",
+        "numéro_ligne": "10 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 38,
+        "nom_sommet": " Bourse ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 39,
+        "nom_sommet": " Brochant ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 2
+    },
+    {
+        "num_sommet": 40,
+        "nom_sommet": " Bréguet-Sabin ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 41,
+        "nom_sommet": " Buttes Chaumont ",
+        "numéro_ligne": "7bis ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 42,
+        "nom_sommet": " Buzenval ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 43,
+        "nom_sommet": " Bérault ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 44,
+        "nom_sommet": " Cadet ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 45,
+        "nom_sommet": " Cambronne ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 46,
+        "nom_sommet": " Campo-Formio ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 47,
+        "nom_sommet": " Cardinal Lemoine ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 48,
+        "nom_sommet": " Carrefour Pleyel ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 1
+    },
+    {
+        "num_sommet": 49,
+        "nom_sommet": " Censier Daubenton ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 50,
+        "nom_sommet": " Champs Élysées, Clémenceau ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 51,
+        "nom_sommet": " Champs Élysées, Clémenceau ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 52,
+        "nom_sommet": " Chardon Lagâche ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 53,
+        "nom_sommet": " Charenton-Écoles ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 54,
+        "nom_sommet": " Charles Michels ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 55,
+        "nom_sommet": " Charles de Gaulle, Étoile ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 56,
+        "nom_sommet": " Charles de Gaulle, Étoile ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 57,
+        "nom_sommet": " Charles de Gaulle, Étoile ",
+        "numéro_ligne": "6 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 58,
+        "nom_sommet": " Charonne ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 59,
+        "nom_sommet": " Chaussée d'Antin, La Fayette ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 60,
+        "nom_sommet": " Chaussée d'Antin, La Fayette ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 61,
+        "nom_sommet": " Chemin Vert ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 62,
+        "nom_sommet": " Chevaleret ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 63,
+        "nom_sommet": " Château Landon ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 64,
+        "nom_sommet": " Château Rouge ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 65,
+        "nom_sommet": " Château d'Eau ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 66,
+        "nom_sommet": " Château de Vincennes ",
+        "numéro_ligne": "1 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 67,
+        "nom_sommet": " Châtelet ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 68,
+        "nom_sommet": " Châtelet ",
+        "numéro_ligne": "11 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 69,
+        "nom_sommet": " Châtelet ",
+        "numéro_ligne": "14 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 70,
+        "nom_sommet": " Châtelet ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 71,
+        "nom_sommet": " Châtelet ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 72,
+        "nom_sommet": " Châtillon-Montrouge ",
+        "numéro_ligne": "13 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 73,
+        "nom_sommet": " Cité ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 74,
+        "nom_sommet": " Cluny, La Sorbonne ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 75,
+        "nom_sommet": " Colonel Fabien ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 76,
+        "nom_sommet": " Commerce ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 77,
+        "nom_sommet": " Concorde ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 78,
+        "nom_sommet": " Concorde ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 79,
+        "nom_sommet": " Concorde ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 80,
+        "nom_sommet": " Convention ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 81,
+        "nom_sommet": " Corentin Celton ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 82,
+        "nom_sommet": " Corentin-Cariou ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 83,
+        "nom_sommet": " Corvisart ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 84,
+        "nom_sommet": " Cour Saint-Émilion ",
+        "numéro_ligne": "14 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 85,
+        "nom_sommet": " Courcelles ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 86,
+        "nom_sommet": " Couronnes ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 87,
+        "nom_sommet": " Crimée ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 88,
+        "nom_sommet": " Croix de Chavaux ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 89,
+        "nom_sommet": " Créteil-Préfecture ",
+        "numéro_ligne": "8 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 90,
+        "nom_sommet": " Créteil-Université ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 91,
+        "nom_sommet": " Créteil-l'Echat, Hôpital Henri Mondor ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 92,
+        "nom_sommet": " Danube ",
+        "numéro_ligne": "7bis ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 93,
+        "nom_sommet": " Daumesnil ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 94,
+        "nom_sommet": " Daumesnil ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 95,
+        "nom_sommet": " Denfert Rochereau ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 96,
+        "nom_sommet": " Denfert Rochereau ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 97,
+        "nom_sommet": " Dugommier ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 98,
+        "nom_sommet": " Dupleix ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 99,
+        "nom_sommet": " Duroc ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 100,
+        "nom_sommet": " Duroc ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 101,
+        "nom_sommet": " Edgar Quinet ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 102,
+        "nom_sommet": " Esplanade de la Défense ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 103,
+        "nom_sommet": " Europe ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 104,
+        "nom_sommet": " Exelmans ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 105,
+        "nom_sommet": " Faidherbe-Chaligny ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 106,
+        "nom_sommet": " Falguière ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 107,
+        "nom_sommet": " Filles du Calvaire ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 108,
+        "nom_sommet": " Fort d'Aubervilliers ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 109,
+        "nom_sommet": " Franklin D. Roosevelt ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 110,
+        "nom_sommet": " Franklin D. Roosevelt ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 111,
+        "nom_sommet": " Félix Faure ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 112,
+        "nom_sommet": " Gabriel Péri, Asnières-Gennevilliers ",
+        "numéro_ligne": "13 ",
+        "si_terminus": true,
+        "branchement": 2
+    },
+    {
+        "num_sommet": 113,
+        "nom_sommet": " Gaité ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 114,
+        "nom_sommet": " Galliéni ",
+        "numéro_ligne": "3 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 115,
+        "nom_sommet": " Gambetta ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 116,
+        "nom_sommet": " Gambetta ",
+        "numéro_ligne": "3bis ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 117,
+        "nom_sommet": " Gare d'Austerlitz ",
+        "numéro_ligne": "10 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 118,
+        "nom_sommet": " Gare d'Austerlitz ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 119,
+        "nom_sommet": " Gare de Lyon ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 120,
+        "nom_sommet": " Gare de Lyon ",
+        "numéro_ligne": "14 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 121,
+        "nom_sommet": " Gare de l'Est ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 122,
+        "nom_sommet": " Gare de l'Est ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 123,
+        "nom_sommet": " Gare de l'Est ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 124,
+        "nom_sommet": " Gare du Nord ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 125,
+        "nom_sommet": " Gare du Nord ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 126,
+        "nom_sommet": " Garibaldi ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 1
+    },
+    {
+        "num_sommet": 127,
+        "nom_sommet": " George V ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 128,
+        "nom_sommet": " Glacière ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 129,
+        "nom_sommet": " Goncourt ",
+        "numéro_ligne": "11 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 130,
+        "nom_sommet": " Grande Arche de la Défense ",
+        "numéro_ligne": "1 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 131,
+        "nom_sommet": " Guy Môquet ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 1
+    },
+    {
+        "num_sommet": 132,
+        "nom_sommet": " Havre Caumartin ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 133,
+        "nom_sommet": " Havre Caumartin ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 134,
+        "nom_sommet": " Hoche ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 135,
+        "nom_sommet": " Hôtel de Ville ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 136,
+        "nom_sommet": " Hôtel de Ville ",
+        "numéro_ligne": "11 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 137,
+        "nom_sommet": " Invalides ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 138,
+        "nom_sommet": " Invalides ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 139,
+        "nom_sommet": " Iéna ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 140,
+        "nom_sommet": " Jacques Bonsergent ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 141,
+        "nom_sommet": " Jasmin ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 142,
+        "nom_sommet": " Jaurès ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 143,
+        "nom_sommet": " Jaurès ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 144,
+        "nom_sommet": " Jaurès ",
+        "numéro_ligne": "7bis ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 145,
+        "nom_sommet": " Javel ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 146,
+        "nom_sommet": " Jourdain ",
+        "numéro_ligne": "11 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 147,
+        "nom_sommet": " Jules Joffrin ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 148,
+        "nom_sommet": " Jussieu ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 149,
+        "nom_sommet": " Jussieu ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 150,
+        "nom_sommet": " Kléber ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 151,
+        "nom_sommet": " La Chapelle ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 152,
+        "nom_sommet": " La Courneuve, 8 Mai 1945 ",
+        "numéro_ligne": "7 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 153,
+        "nom_sommet": " La Fourche ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 154,
+        "nom_sommet": " La Motte Picquet, Grenelle ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 155,
+        "nom_sommet": " La Motte Picquet, Grenelle ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 156,
+        "nom_sommet": " La Motte Picquet, Grenelle ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 157,
+        "nom_sommet": " La Muette ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 158,
+        "nom_sommet": " La Tour-Maubourg ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 159,
+        "nom_sommet": " Lamarck Caulaincourt ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 160,
+        "nom_sommet": " Laumière ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 161,
+        "nom_sommet": " Le Kremlin-Bicêtre ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 2
+    },
+    {
+        "num_sommet": 162,
+        "nom_sommet": " Le Peletier ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 163,
+        "nom_sommet": " Ledru Rollin ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 164,
+        "nom_sommet": " Les Gobelins ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 165,
+        "nom_sommet": " Les Halles ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 166,
+        "nom_sommet": " Les Sablons ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 167,
+        "nom_sommet": " Liberté ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 168,
+        "nom_sommet": " Liège ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 169,
+        "nom_sommet": " Louis Blanc ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 170,
+        "nom_sommet": " Louis Blanc ",
+        "numéro_ligne": "7bis ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 171,
+        "nom_sommet": " Louise Michel ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 172,
+        "nom_sommet": " Lourmel ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 173,
+        "nom_sommet": " Louvre, Rivoli ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 174,
+        "nom_sommet": " Mabillon ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 175,
+        "nom_sommet": " Madeleine ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 176,
+        "nom_sommet": " Madeleine ",
+        "numéro_ligne": "14 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 177,
+        "nom_sommet": " Madeleine ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 178,
+        "nom_sommet": " Mairie d'Issy ",
+        "numéro_ligne": "12 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 179,
+        "nom_sommet": " Mairie d'Ivry ",
+        "numéro_ligne": "7 ",
+        "si_terminus": true,
+        "branchement": 1
+    },
+    {
+        "num_sommet": 180,
+        "nom_sommet": " Mairie de Clichy ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 2
+    },
+    {
+        "num_sommet": 181,
+        "nom_sommet": " Mairie de Montreuil ",
+        "numéro_ligne": "9 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 182,
+        "nom_sommet": " Mairie de Saint-Ouen ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 1
+    },
+    {
+        "num_sommet": 183,
+        "nom_sommet": " Mairie des Lilas ",
+        "numéro_ligne": "11 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 184,
+        "nom_sommet": " Maison Blanche ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 185,
+        "nom_sommet": " Maisons-Alfort les Juilliottes ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 186,
+        "nom_sommet": " Maisons-Alfort, Stade ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 187,
+        "nom_sommet": " Malakoff-Plateau de Vanves ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 188,
+        "nom_sommet": " Malakoff-Rue Étienne Dolet ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 189,
+        "nom_sommet": " Malesherbes ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 190,
+        "nom_sommet": " Maraîchers ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 191,
+        "nom_sommet": " Marcadet Poissonniers ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 192,
+        "nom_sommet": " Marcadet Poissonniers ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 193,
+        "nom_sommet": " Marcel Sembat ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 194,
+        "nom_sommet": " Marx Dormoy ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 195,
+        "nom_sommet": " Maubert Mutualité ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 196,
+        "nom_sommet": " Michel Ange Auteuil ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 197,
+        "nom_sommet": " Michel Ange Auteuil ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 198,
+        "nom_sommet": " Michel Ange Molitor ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 199,
+        "nom_sommet": " Michel Ange Molitor ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 200,
+        "nom_sommet": " Michel Bizot ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 201,
+        "nom_sommet": " Mirabeau ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 202,
+        "nom_sommet": " Miromesnil ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 203,
+        "nom_sommet": " Miromesnil ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 204,
+        "nom_sommet": " Monceau ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 205,
+        "nom_sommet": " Montgallet ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 206,
+        "nom_sommet": " Montparnasse Bienvenue ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 207,
+        "nom_sommet": " Montparnasse Bienvenue ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 208,
+        "nom_sommet": " Montparnasse Bienvenue ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 209,
+        "nom_sommet": " Montparnasse Bienvenue ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 210,
+        "nom_sommet": " Mouton-Duvernet ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 211,
+        "nom_sommet": " Ménilmontant ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 212,
+        "nom_sommet": " Nation ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 213,
+        "nom_sommet": " Nation ",
+        "numéro_ligne": "2 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 214,
+        "nom_sommet": " Nation ",
+        "numéro_ligne": "6 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 215,
+        "nom_sommet": " Nation ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 216,
+        "nom_sommet": " Nationale ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 217,
+        "nom_sommet": " Notre Dame de Lorette ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 218,
+        "nom_sommet": " Notre-Dame-des-Champs ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 219,
+        "nom_sommet": " Oberkampf ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 220,
+        "nom_sommet": " Oberkampf ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 221,
+        "nom_sommet": " Odéon ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 222,
+        "nom_sommet": " Odéon ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 223,
+        "nom_sommet": " Opéra ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 224,
+        "nom_sommet": " Opéra ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 225,
+        "nom_sommet": " Opéra ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 226,
+        "nom_sommet": " Ourcq ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 227,
+        "nom_sommet": " Palais Royal, Musée du Louvre ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 228,
+        "nom_sommet": " Palais Royal, Musée du Louvre ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 229,
+        "nom_sommet": " Parmentier ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 230,
+        "nom_sommet": " Passy ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 231,
+        "nom_sommet": " Pasteur ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 232,
+        "nom_sommet": " Pasteur ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 233,
+        "nom_sommet": " Pelleport ",
+        "numéro_ligne": "3bis ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 234,
+        "nom_sommet": " Pernety ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 235,
+        "nom_sommet": " Philippe-Auguste ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 236,
+        "nom_sommet": " Picpus ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 237,
+        "nom_sommet": " Pierre Curie ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 1
+    },
+    {
+        "num_sommet": 238,
+        "nom_sommet": " Pigalle ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 239,
+        "nom_sommet": " Pigalle ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 240,
+        "nom_sommet": " Place Balard ",
+        "numéro_ligne": "8 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 241,
+        "nom_sommet": " Place Monge ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 242,
+        "nom_sommet": " Place d'Italie ",
+        "numéro_ligne": "5 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 243,
+        "nom_sommet": " Place d'Italie ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 244,
+        "nom_sommet": " Place d'Italie ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 245,
+        "nom_sommet": " Place de Clichy ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 246,
+        "nom_sommet": " Place de Clichy ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 247,
+        "nom_sommet": " Place des Fêtes ",
+        "numéro_ligne": "11 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 248,
+        "nom_sommet": " Place des Fêtes ",
+        "numéro_ligne": "7bis ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 249,
+        "nom_sommet": " Plaisance ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 250,
+        "nom_sommet": " Poissonnière ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 251,
+        "nom_sommet": " Pont de Levallois, Bécon ",
+        "numéro_ligne": "3 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 252,
+        "nom_sommet": " Pont de Neuilly ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 253,
+        "nom_sommet": " Pont de Sèvres ",
+        "numéro_ligne": "9 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 254,
+        "nom_sommet": " Pont-Marie ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 255,
+        "nom_sommet": " Pont-Neuf ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 256,
+        "nom_sommet": " Porte Dauphine ",
+        "numéro_ligne": "2 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 257,
+        "nom_sommet": " Porte Dorée ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 258,
+        "nom_sommet": " Porte Maillot ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 259,
+        "nom_sommet": " Porte d'Auteuil ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 260,
+        "nom_sommet": " Porte d'Italie ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 1
+    },
+    {
+        "num_sommet": 261,
+        "nom_sommet": " Porte d'Ivry ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 1
+    },
+    {
+        "num_sommet": 262,
+        "nom_sommet": " Porte d'Orléans ",
+        "numéro_ligne": "4 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 263,
+        "nom_sommet": " Porte de Bagnolet ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 264,
+        "nom_sommet": " Porte de Champerret ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 265,
+        "nom_sommet": " Porte de Charenton ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 266,
+        "nom_sommet": " Porte de Choisy ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 1
+    },
+    {
+        "num_sommet": 267,
+        "nom_sommet": " Porte de Clichy ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 2
+    },
+    {
+        "num_sommet": 268,
+        "nom_sommet": " Porte de Clignancourt ",
+        "numéro_ligne": "4 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 269,
+        "nom_sommet": " Porte de Montreuil ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 270,
+        "nom_sommet": " Porte de Pantin ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 271,
+        "nom_sommet": " Porte de Saint-Cloud ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 272,
+        "nom_sommet": " Porte de Saint-Ouen ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 1
+    },
+    {
+        "num_sommet": 273,
+        "nom_sommet": " Porte de Vanves ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 274,
+        "nom_sommet": " Porte de Versailles ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 275,
+        "nom_sommet": " Porte de Vincennes ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 276,
+        "nom_sommet": " Porte de la Chapelle ",
+        "numéro_ligne": "12 ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 277,
+        "nom_sommet": " Porte de la Villette ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 278,
+        "nom_sommet": " Porte des Lilas ",
+        "numéro_ligne": "11 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 279,
+        "nom_sommet": " Porte des Lilas ",
+        "numéro_ligne": "3bis ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 280,
+        "nom_sommet": " Pré-Saint-Gervais ",
+        "numéro_ligne": "7bis ",
+        "si_terminus": true,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 281,
+        "nom_sommet": " Pyramides ",
+        "numéro_ligne": "14 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 282,
+        "nom_sommet": " Pyramides ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 283,
+        "nom_sommet": " Pyrénées ",
+        "numéro_ligne": "11 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 284,
+        "nom_sommet": " Père Lachaise ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 285,
+        "nom_sommet": " Père Lachaise ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 286,
+        "nom_sommet": " Péreire ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 287,
+        "nom_sommet": " Quai de la Gare ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 288,
+        "nom_sommet": " Quai de la Rapée ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 289,
+        "nom_sommet": " Quatre Septembre ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 290,
+        "nom_sommet": " Rambuteau ",
+        "numéro_ligne": "11 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 291,
+        "nom_sommet": " Ranelagh ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 292,
+        "nom_sommet": " Raspail ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 293,
+        "nom_sommet": " Raspail ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 294,
+        "nom_sommet": " Rennes ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 295,
+        "nom_sommet": " Reuilly Diderot ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 296,
+        "nom_sommet": " Reuilly Diderot ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 297,
+        "nom_sommet": " Richard Lenoir ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 298,
+        "nom_sommet": " Richelieu Drouot ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 299,
+        "nom_sommet": " Richelieu Drouot ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 300,
+        "nom_sommet": " Riquet ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 301,
+        "nom_sommet": " Robespierre ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 302,
+        "nom_sommet": " Rome ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 303,
+        "nom_sommet": " Rue Montmartre, Grands Boulevards ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 304,
+        "nom_sommet": " Rue Montmartre, Grands Boulevards ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 305,
+        "nom_sommet": " Rue Saint-Maur ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 306,
+        "nom_sommet": " Rue de la Pompe ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 307,
+        "nom_sommet": " Rue des Boulets ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 308,
+        "nom_sommet": " Rue du Bac ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 309,
+        "nom_sommet": " Réaumur Sébastopol ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 310,
+        "nom_sommet": " Réaumur Sébastopol ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 311,
+        "nom_sommet": " République ",
+        "numéro_ligne": "11 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 312,
+        "nom_sommet": " République ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 313,
+        "nom_sommet": " République ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 314,
+        "nom_sommet": " République ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 315,
+        "nom_sommet": " République ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 316,
+        "nom_sommet": " Saint-Ambroise ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 317,
+        "nom_sommet": " Saint-Augustin ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 318,
+        "nom_sommet": " Saint-Denis-Porte de Paris ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 1
+    },
+    {
+        "num_sommet": 319,
+        "nom_sommet": " Saint-Denis-Université ",
+        "numéro_ligne": "13 ",
+        "si_terminus": true,
+        "branchement": 1
+    },
+    {
+        "num_sommet": 320,
+        "nom_sommet": " Saint-Fargeau ",
+        "numéro_ligne": "3bis ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 321,
+        "nom_sommet": " Saint-Francois Xavier ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 322,
+        "nom_sommet": " Saint-Georges ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 323,
+        "nom_sommet": " Saint-Germain-des-Prés ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 324,
+        "nom_sommet": " Saint-Jacques ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 325,
+        "nom_sommet": " Saint-Lazare ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 326,
+        "nom_sommet": " Saint-Lazare ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 327,
+        "nom_sommet": " Saint-Lazare ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 328,
+        "nom_sommet": " Saint-Mandé, Tourelle ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 329,
+        "nom_sommet": " Saint-Marcel ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 330,
+        "nom_sommet": " Saint-Michel ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 331,
+        "nom_sommet": " Saint-Paul, Le Marais ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 332,
+        "nom_sommet": " Saint-Philippe du Roule ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 333,
+        "nom_sommet": " Saint-Placide ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 334,
+        "nom_sommet": " Saint-Sulpice ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 335,
+        "nom_sommet": " Saint-Sébastien-Froissart ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 336,
+        "nom_sommet": " Sentier ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 337,
+        "nom_sommet": " Simplon ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 338,
+        "nom_sommet": " Solférino ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 339,
+        "nom_sommet": " Stalingrad ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 340,
+        "nom_sommet": " Stalingrad ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 341,
+        "nom_sommet": " Stalingrad ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 342,
+        "nom_sommet": " Strasbourg Saint-Denis ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 343,
+        "nom_sommet": " Strasbourg Saint-Denis ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 344,
+        "nom_sommet": " Strasbourg Saint-Denis ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 345,
+        "nom_sommet": " Sully Morland ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 346,
+        "nom_sommet": " Sèvres Babylone ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 347,
+        "nom_sommet": " Sèvres Babylone ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 348,
+        "nom_sommet": " Sèvres Lecourbe ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 349,
+        "nom_sommet": " Ségur ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 350,
+        "nom_sommet": " Temple ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 351,
+        "nom_sommet": " Ternes ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 352,
+        "nom_sommet": " Tolbiac ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 353,
+        "nom_sommet": " Trinité d'Estienne d'Orves ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 354,
+        "nom_sommet": " Trocadéro ",
+        "numéro_ligne": "6 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 355,
+        "nom_sommet": " Trocadéro ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 356,
+        "nom_sommet": " Tuileries ",
+        "numéro_ligne": "1 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 357,
+        "nom_sommet": " Télégraphe ",
+        "numéro_ligne": "11 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 358,
+        "nom_sommet": " Vaneau ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 359,
+        "nom_sommet": " Varenne ",
+        "numéro_ligne": "13 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 360,
+        "nom_sommet": " Vaugirard ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 361,
+        "nom_sommet": " Vavin ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 362,
+        "nom_sommet": " Victor Hugo ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 363,
+        "nom_sommet": " Villejuif, Louis Aragon ",
+        "numéro_ligne": "7 ",
+        "si_terminus": true,
+        "branchement": 2
+    },
+    {
+        "num_sommet": 364,
+        "nom_sommet": " Villejuif, Léo Lagrange ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 2
+    },
+    {
+        "num_sommet": 365,
+        "nom_sommet": " Villejuif, P. Vaillant Couturier ",
+        "numéro_ligne": "7 ",
+        "si_terminus": false,
+        "branchement": 2
+    },
+    {
+        "num_sommet": 366,
+        "nom_sommet": " Villiers ",
+        "numéro_ligne": "2 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 367,
+        "nom_sommet": " Villiers ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 368,
+        "nom_sommet": " Volontaires ",
+        "numéro_ligne": "12 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 369,
+        "nom_sommet": " Voltaire ",
+        "numéro_ligne": "9 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 370,
+        "nom_sommet": " Wagram ",
+        "numéro_ligne": "3 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 371,
+        "nom_sommet": " École Militaire ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 372,
+        "nom_sommet": " École Vétérinaire de Maisons-Alfort ",
+        "numéro_ligne": "8 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 373,
+        "nom_sommet": " Église d'Auteuil ",
+        "numéro_ligne": "10 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 374,
+        "nom_sommet": " Église de Pantin ",
+        "numéro_ligne": "5 ",
+        "si_terminus": false,
+        "branchement": 0
+    },
+    {
+        "num_sommet": 375,
+        "nom_sommet": " Étienne Marcel ",
+        "numéro_ligne": "4 ",
+        "si_terminus": false,
+        "branchement": 0
+    }
+]
