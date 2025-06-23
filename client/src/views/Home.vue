@@ -28,9 +28,8 @@
   </section>
 
   <!-- Section de calcul de trajet -->
-  <section class="bg-white text-gray-900 py-20 px-6 md:px-16 lg:px-24">
+  <section class="bg-white text-gray-900 py-20 px-6 md:px-16 lg:px-24 min-h-screen flex items-center">
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-      <!-- Texte à gauche -->
       <div>
         <p class="text-sm font-semibold uppercase pb-2">Rapidité</p>
         <h2 class="text-3xl md:text-4xl font-extrabold pb-6 leading-snug">
@@ -65,7 +64,7 @@
 
       <!-- Image à droite -->
       <div class="flex justify-center">
-        <img src="" alt="Illustration trajet" class="w-full h-auto max-w-md rounded-lg shadow-md" />
+        <img src="@/assets/TREATED-paris-metro-map.webp" alt="Illustration trajet" class="w-full h-auto max-w-md rounded-lg shadow-md" />
       </div>
     </div>
   </section>
