@@ -13,7 +13,7 @@ app.use(express.json());
 const routes = require("./routes");
 app.use("/", routes);
 
-// Configuration de la base PostgreSQL (Render) sans .env
+// Configuration de la base PostgreSQL (Render) avec .env
 const sequelize = new Sequelize(
   process.env.DB_NAME,
   process.env.DB_USER,
