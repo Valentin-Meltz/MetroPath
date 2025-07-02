@@ -15,6 +15,7 @@ CREATE TABLE routes (
     route_text_color VARCHAR(50),
     FOREIGN KEY (agency_id) REFERENCES agency(agency_id)
 );
+
 CREATE TABLE calendar (
     service_id VARCHAR(50) PRIMARY KEY,
     monday INT,
@@ -72,7 +73,8 @@ CREATE TABLE stop_times (
     PRIMARY KEY (trip_id, stop_sequence),
     FOREIGN KEY (trip_id) REFERENCES trips(trip_id),
     FOREIGN KEY (stop_id) REFERENCES stops(stop_id)
-),
+);
+
 CREATE TABLE transfers (
     from_stop_id VARCHAR(50),
     to_stop_id VARCHAR(50),
