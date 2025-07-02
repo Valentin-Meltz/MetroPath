@@ -82,21 +82,3 @@ CREATE TABLE transfers (
     FOREIGN KEY (from_stop_id) REFERENCES stops(stop_id),
     FOREIGN KEY (to_stop_id) REFERENCES stops(stop_id)
 );
-
-CREATE TABLE pathways (
-    pathway_id VARCHAR(50) PRIMARY KEY,
-    from_stop_id VARCHAR(50),
-    to_stop_id VARCHAR(50),
-    pathway_mode INT,
-    length INT,
-    traversal_time INT,
-    FOREIGN KEY (from_stop_id) REFERENCES stops(stop_id),
-    FOREIGN KEY (to_stop_id) REFERENCES stops(stop_id)
-);
-
-CREATE TABLE stop_extensions (
-    object_id VARCHAR(50) PRIMARY KEY,
-    object_system VARCHAR(50),
-    object_code VARCHAR(50),
-    FOREIGN KEY (object_id) REFERENCES stops(stop_id)
-);
