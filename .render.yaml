@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: metropath-frontend
+    env: static
+    staticPublishPath: client/dist
+    buildCommand: cd client && npm install && npm run build
