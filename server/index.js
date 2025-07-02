@@ -1,13 +1,6 @@
-/**
- * 📦 Commandes à exécuter avant de lancer le serveur :
- * npm init -y
- * npm install express sequelize pg cors
- *
- * ▶️ Pour lancer le serveur :
- * node server/index.js
- */
-
 const express = require("express");
+const dotenv = require("dotenv");
+dotenv.config();
 const cors = require("cors");
 const { Sequelize } = require("sequelize");
 
@@ -19,12 +12,12 @@ app.use(express.json());
 
 // Configuration de la base PostgreSQL (Render) sans .env
 const sequelize = new Sequelize(
-  "metropath_database", // Nom de la base
-  "metropath_database_user", // Nom d'utilisateur
-  "2h1mvSwUJ8dm8lcy6q3sPStZUxY6GugT", // Mot de passe
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
   {
-    host: "dpg-d1hqds3uibrs73fo2vkg-a.oregon-postgres.render.com", // Host Render complet
-    port: 5432,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
     dialect: "postgres",
     dialectOptions: {
       ssl: {
