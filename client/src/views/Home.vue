@@ -77,68 +77,73 @@
 </template>
 
 <script>
+/*
+-- On récupère au chargement de la page la matrice depuis toutes les routes
+-- On stock la matrice dans un json ainsi que toutes les stations (faudra faire un taf sur les duplications)
+-- On get par input les stations choisis
+-- On utilise la matrice pour calculer les chemins les plus court de tous les stop de départ vers tous les stop d'arriver
+-- On prend le chemins le plus court parmis cette liste
+-- On l'affiche
+
+-- Avantage : 
+    - On forme la matrice qu'une seul fois puisqu'après elle est stocké en JSON
+
+-- Inconvénients
+    - Beaucoup de calcul de chemin le plus cours à faire
+*/
+
+
 import axios from 'axios';
 export default {
   name: 'Home',
   data() {
     return {
-      stations: [],
-      stationNames: [],
-      startStation: '',
-      endStation: '',
+      stops: [],
+      transfers: [],
+      station: []
     };
   },
   methods: {
-    async fetchStations() {
-      console.log("Fetching stations from API...");
-      await axios.get(`${import.meta.env.VITE_APP_API_URL}/getAllStations`).then(response => {
-        this.stations = response.data.stations;
-        console.log("Stations fetched successfully:", this.stations);
-        this.getAllStationsNames();
-      }).catch(error => {
-        console.error("Error fetching stations:", error);
-      });
-    },
-    getAllStationsNames() {
-      this.stationNames = this.stations
-        .map(s => s.nom_sommet)
-        .filter(nom => typeof nom === 'string');
-    },
-    getPath() {
-      const start = this.startStation;
-      const end = this.endStation;
-
-      console.log(`Calculating path from API: ${start} → ${end}`);
-      
-      axios.get(`${import.meta.env.VITE_APP_API_URL}/shorterPath/${start}/${end}`).then(response => {
-        console.log("Path calculated successfully:", response.data);
-      }).catch(error => {
-        console.error("Error calculating path:", error);
-      });
-    },
-    scrollToPath() {
-      const element = document.getElementById('path');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+    async fetchStops() {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/getStops`);
+        this.stops = response.data.stops;
+        this.buildStation();
+      } catch (error) {
+        console.error("Erreur lors de la récupération des stops :", error);
       }
+    },
+
+    async fetchTransfers() {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/getTransfers`);
+        this.transfers = response.data.transfers;
+      } catch (error) {
+        console.error("Erreur lors de la récupération des stops :", error);
+      }
+    },
+
+    buildStation() {
+      for (let i = 0; i < this.stops.length; i++) {
+        const stop = this.stops[i];
+        if (!this.station.includes(stop.stop_name)) {
+          this.station.push(stop.stop_name);
+        }
+      }
+     
     }
   },
   mounted() {
-    this.fetchStations();
-    console.log("Mounted Home component");
+    this.fetchStops();
+    this.fetchTransfers();
   },
-  computed : {
+
+  computed: {
     filteredStartStations() {
-      const input = this.startStation.toLowerCase();
-      return this.stationNames
-        .filter(name => typeof name === 'string')
-        .filter(name => name.toLowerCase().includes(input));
+      return this.station;
     },
     filteredEndStations() {
-      const input = this.endStation.toLowerCase();
-      return this.stationNames
-        .filter(name => typeof name === 'string')
-        .filter(name => name.toLowerCase().includes(input));
+      return this.station;
     }
   }
 };
