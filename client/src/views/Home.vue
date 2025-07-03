@@ -1,5 +1,5 @@
 <template>
-    <section>
+  <section>
     <section class="bg-gray-700 text-white py-20 px-6 md:px-16 lg:px-24 min-h-screen flex items-center">
       <div class="mx-auto grid md:grid-cols-2 gap-12 items-center">
         <!-- Texte à gauche -->
@@ -11,9 +11,7 @@
             Bienvenue sur notre application web qui vous aide à trouver le meilleur trajet entre deux stations de métro. En quelques clics, découvrez le chemin le plus rapide et le plus efficace pour vos déplacements.
           </p>
           <div class="flex gap-4 py-4">
-            <button class="bg-white text-gray-900 px-6 py-2 rounded shadow hover:bg-gray-100 transitio">
-              Commencer
-            </button>
+            <a href="#path" @click.prevent="scrollToPath" class="bg-white text-gray-900 px-6 py-2 rounded shadow hover:bg-gray-100 transitio">Commencer</a>
           </div>
         </div>
 
@@ -28,18 +26,18 @@
       </div>
     </section>
 
-  <!-- Section de calcul de trajet -->
-  <section class="bg-white text-gray-900 py-20 px-6 md:px-16 lg:px-24 min-h-screen flex items-center">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-      <div>
-        <p class="text-sm font-semibold uppercase pb-2">Rapidité</p>
-        <h2 class="text-3xl md:text-4xl font-extrabold pb-6 leading-snug">
-          Découvrez nos itinéraires<br />
-          optimisés en temps réel
-        </h2>
-        <p class="text-base text-gray-700 pb-8">
-          Notre application utilise des algorithmes avancés pour analyser les données de transport. Grâce aux mises à jour en temps réel, nous vous garantissons des itinéraires rapides et fiables.
-        </p>
+    <!-- Section de calcul de trajet -->
+    <section id="path" class="bg-white text-gray-900 py-20 px-6 md:px-16 lg:px-24 min-h-screen flex items-center">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="text-sm font-semibold uppercase pb-2">Rapidité</p>
+          <h2 class="text-3xl md:text-4xl font-extrabold pb-6 leading-snug">
+            Découvrez nos itinéraires<br />
+            optimisés en temps réel
+          </h2>
+          <p class="text-base text-gray-700 pb-8">
+            Notre application utilise des algorithmes avancés pour analyser les données de transport. Grâce aux mises à jour en temps réel, nous vous garantissons des itinéraires rapides et fiables.
+          </p>
 
           <!-- Inputs simulés -->
           <div class="space-y-4 pb-8">
@@ -180,4 +178,6 @@ export default {
     }
   }
 };
+
+document.get
 </script>
