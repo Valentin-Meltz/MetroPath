@@ -32,6 +32,11 @@ const sequelize = new Sequelize(
   }
 );
 
+// Test du port
+app.listen(port, () => {
+  console.log(`🚀 Serveur démarré sur le port ${port}`);
+});
+
 // Test de connexion
 sequelize.authenticate()
   .then(() => {
@@ -41,16 +46,33 @@ sequelize.authenticate()
     console.error("❌ Erreur de connexion à la base :", err);
   });
 
-// Route de test
-app.get("/api/test-db", async (req, res) => {
+// Route pour obtenir les sommets
+app.get("/getStops", async (req, res) => {
   try {
-    const [result] = await sequelize.query("SELECT NOW()");
-    res.json({ time: result[0].now });
+    const [results, metadata] = await sequelize.query("SELECT stop_id, stop_name FROM stops");
+    const stops = results.map(stop => ({
+      stop_id: stop.stop_id,
+      stop_name: stop.stop_name
+    }));
+    res.send({ success: true, stops });
   } catch (err) {
-    res.status(500).send("Erreur requête BDD");
+    console.error("Erreur lors de la récupération des arrêts :", err);
+    res.status(500).send({ success: false, message: "Erreur serveur." });
   }
 });
 
-app.listen(port, () => {
-  console.log(`🚀 Serveur démarré sur le port ${port}`);
+// Route pour obtenir la premières partie des aretes
+app.get("/getTransfers", async (req, res) => {
+  try {
+    const [results, metadata] = await sequelize.query("SELECT from_stop_id, to_stop_id, min_transfer_time FROM transfers");
+    const transfers = results.map(t => ({
+      from_stop_id: t.from_stop_id,
+      to_stop_id: t.to_stop_id,
+      min_transfer_time: t.min_transfer_time
+    }));
+    res.send({ success: true, transfers });
+  } catch (err) {
+    console.error("Erreur lors de la récupération des transfert :", err);
+    res.status(500).send({ success: false, message: "Erreur serveur." });
+  }
 });

@@ -9,7 +9,7 @@ with open("../data/Version2/agency.txt", "r") as fichier:
     for ligne in lignes:
 
         i = ligne.split(",")
-        if(i[0] == "IDFM:Operator_100"):
+        if(i[1] == "RATP" or i[1] == "RER" or i[1] == "Transilien"):
             agency = {
                 'agency_id' : i[0],
                 'agency_name' : i[1],
@@ -21,15 +21,20 @@ fichier.close()
 with open("../server/Data/agency.json", "w") as fichier:
      json.dump(agencies, fichier, indent=4, ensure_ascii=False)
 fichier.close()
+print("✅File Agency Extracted Successfully")
 
 ## Fichier routes
+with open("../server/Data/agency.json", "r") as f:
+    agency_data = json.load(f)
+    agency_ids_valides = set(agency['agency_id'] for agency in agency_data)
+f.close()
 routes = []
 with open("../data/Version2/routes.txt", "r") as fichier:
     lignes = fichier.readlines()[1:]
     for ligne in lignes:
         i = ligne.split(",")
         
-        if(i[1] == "IDFM:Operator_100" and i[5] == "1"):
+        if(i[1] in agency_ids_valides and (i[5] == "1" or i[5] == "2" or i[5] == "0")):
             route = {
                 'route_id' : i[0],
                 'agency_id' : i[1],
@@ -71,38 +76,20 @@ fichier.close()
 with open("../server/Data/trips.json", "w") as fichier:
      json.dump(trips, fichier, indent=4, ensure_ascii=False)
 fichier.close()
+print("✅File Trips Extracted Successfully")
 
-## Fichier calendar_dates
+## Fichier calendar
 with open("../server/Data/trips.json", "r") as f:
     trips_data = json.load(f)
     service_ids_valides = set(t['service_id'] for t in trips_data)
 f.close()
-calendar_dates = []
-with open("../data/Version2/calendar_dates.txt", "r") as fichier:
-    lignes = fichier.readlines()[1:]
-    for ligne in lignes:
-        i = ligne.split(",")
-
-        if i[0] in service_ids_valides:   
-            calendar_date = {
-                'service_id' : i[0],
-                'date' : i[1],
-                'exception_type' : int(i[2].strip()),
-            }
-            calendar_dates.append(calendar_date)
-fichier.close()
-with open("../server/Data/calendar_dates.json", "w") as fichier:
-     json.dump(calendar_dates, fichier, indent=4, ensure_ascii=False)
-fichier.close()
-
-## Fichier calendar
 calendars = []
 with open("../data/Version2/calendar.txt", "r") as fichier:
     lignes = fichier.readlines()[1:]
     for ligne in lignes:
         i = ligne.split(",")
 
-        if i[0] in service_ids_valides:   
+        if i[0] in service_ids_valides:
             calendar = {
                 'service_id' : i[0],
                 'monday' : int(i[1]),
@@ -120,6 +107,55 @@ fichier.close()
 with open("../server/Data/calendar.json", "w") as fichier:
      json.dump(calendars, fichier, indent=4, ensure_ascii=False)
 fichier.close()
+print("✅File Calendar Extracted Successfully")
+
+## Fichier trips
+with open("../server/Data/calendar.json", "r") as f:
+    calendar_data = json.load(f)
+    calendar_ids_valides = set(t['service_id'] for t in calendar_data)
+f.close()
+trips = []
+with open("../data/Version2/trips.txt", "r") as fichier:
+    lignes = fichier.readlines()[1:]
+    for ligne in lignes:
+        i = ligne.split(",")
+
+        if i[1] in calendar_ids_valides and i[0] in route_ids_valides:
+            trip = {
+                'trip_id': i[2],
+                'route_id' : i[0],
+                'service_id' : i[1],
+                'trip_headsign' : i[3],
+                'direction_id' : i[5],
+                'wheelchair_accessible' : i[8],
+                'bikes_allowed' : i[9].strip()
+            }
+            trips.append(trip)
+fichier.close()
+with open("../server/Data/trips.json", "w") as fichier:
+     json.dump(trips, fichier, indent=4, ensure_ascii=False)
+fichier.close()
+print("✅File Trips Extracted Successfully", len(trips))
+
+## Fichier calendar_dates
+calendar_dates = []
+with open("../data/Version2/calendar_dates.txt", "r") as fichier:
+    lignes = fichier.readlines()[1:]
+    for ligne in lignes:
+        i = ligne.split(",")
+
+        if i[0] in calendar_ids_valides:
+            calendar_date = {
+                'service_id' : i[0],
+                'date' : i[1],
+                'exception_type' : int(i[2].strip()),
+            }
+            calendar_dates.append(calendar_date)
+fichier.close()
+with open("../server/Data/calendar_dates.json", "w") as fichier:
+     json.dump(calendar_dates, fichier, indent=4, ensure_ascii=False)
+fichier.close()
+print("✅File Calendar_dates Extracted Successfully")
 
 ## Fichier stop_times
 with open("../server/Data/trips.json", "r") as f:
@@ -148,7 +184,7 @@ fichier.close()
 with open("../server/Data/stop_times.json", "w") as fichier:
      json.dump(stop_times, fichier, indent=4, ensure_ascii=False)
 fichier.close()
-print(len(stop_times))
+print("✅File Stop_times Extracted Successfully")
 
 ## Fichier stops
 with open("../server/Data/stop_times.json", "r") as f:
@@ -178,6 +214,7 @@ fichier.close()
 with open("../server/Data/stops.json", "w") as fichier:
      json.dump(stops, fichier, indent=4, ensure_ascii=False)
 fichier.close()
+print("✅File Stops Extracted Successfully")
 
 ## Fichier transfert
 with open("../server/Data/stops.json", "r") as f:
@@ -202,5 +239,7 @@ fichier.close()
 with open("../server/Data/transfers.json", "w") as fichier:
      json.dump(transfers, fichier, indent=4, ensure_ascii=False)
 fichier.close()
+print("✅File Transfert Extracted Successfully")
 
-print("File extracted")
+print("__File extracted__")
+
