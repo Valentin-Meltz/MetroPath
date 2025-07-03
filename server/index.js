@@ -7,10 +7,14 @@ const { Sequelize } = require("sequelize");
 const app = express();
 const port = process.env.PORT || 3000;
 
+<<<<<<< HEAD
 app.use(cors({
   origin: "*",
   credentials: true
 }));
+=======
+app.use(cors());
+>>>>>>> f8e4424 (new front)
 app.use(express.json());
 
 const routes = require("./routes");
