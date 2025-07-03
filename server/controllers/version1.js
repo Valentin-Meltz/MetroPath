@@ -1,16 +1,19 @@
 import * as script from '../models/version1.js';
 
-export const getShorterPath = (req, res) => {
-    const data = req.body;
-    const depart = data.depart;
-    const arrivee = data.arrivee;
+export const getShorterPath = async (req, res) => {
+    const depart = req.params.depart;
+    const arrivee = req.params.arrivee;
+    console.log(`Request for shorter path from ${depart} to ${arrivee}`);
+
     try {
-        const path = script.getShorterPath(depart, arrivee);
-        res.status(200).json({ path });
+        const result = await script.shorterPath(depart, arrivee);
+        console.log(result);
+        res.status(200).json({ result });
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'An error occurred while processing your request.' });
     }
-}
+};
 
 export const getAllStations = (req, res) => {
     try {

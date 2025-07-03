@@ -64,7 +64,7 @@
           </div>
 
           <!-- Bouton -->
-          <button class="border border-gray-800 px-6 py-2 rounded hover:bg-gray-800 hover:text-white transition">
+          <button @click = "getShortestPath(this.startStation, this.endStation)" class="border border-gray-800 px-6 py-2 rounded hover:bg-gray-800 hover:cursor-pointer hover:text-white transition">
             Calculer mon trajet
           </button>
         </div>
@@ -73,6 +73,15 @@
         <div class="flex justify-center">
           <img src="@/assets/TREATED-paris-metro-map.webp" alt="Illustration trajet" class="w-full h-auto max-w-md rounded-lg shadow-md" />
         </div>
+      </div>
+      <div v-if="path.path.length > 0" class="md:col-span-2">
+        <h3 class="text-2xl font-bold mb-4">Itinéraire trouvé :</h3>
+        <p class="text-gray-700 mb-2">Temps estimé : {{ Math.round(path.time / 60) }} minutes</p>
+        <ul class="list-disc pl-5 space-y-2">
+          <li v-for="(station, index) in path.path" :key="index">
+            {{ station.nom }} ({{ station.ligne }})
+          </li>
+        </ul>
       </div>
     </section>
   </section>
@@ -84,15 +93,39 @@ export default {
   name: 'Home',
   data() {
     return {
+      path : {
+        path: [],
+        time: 0,
+        start: 0,
+        end: 0
+      },
       stations: [],
       stationNames: [],
       startStation: '',
       endStation: '',
+      ligneHexCodes :{
+        "1": "#FFCD00",
+        "2": "#0055C8",
+        "3": "#837902",
+        "3bis": "#6EC4E8",
+        "4": "#CF009E",
+        "5": "#FF7E2E",
+        "6": "#6EC067",
+        "7": "#F59BBB",
+        "7bis": "#6ECA97",
+        "8": "#C9910D",
+        "9": "#B6BD00",
+        "10": "#C9910D",
+        "11": "#704B1C",
+        "12": "#007852",
+        "13": "#6E6E6E",
+        "14": "#62259D"
+      },
     };
+
   },
   methods: {
     async fetchStations() {
-      console.log("Fetching stations from API...");
       await axios.get(`${import.meta.env.VITE_APP_API_URL}/getAllStations`).then(response => {
         this.stations = response.data.stations;
         console.log("Stations fetched successfully:", this.stations);
@@ -106,10 +139,31 @@ export default {
         .map(s => s.nom_sommet)
         .filter(nom => typeof nom === 'string');
     },
+    async getShortestPath(start, end) {
+      try {
+        for (let i in this.stations) {
+          if (this.stations[i].nom_sommet.toLowerCase() === start.toLowerCase()) {
+            var depart = i;
+            break;
+          }
+        }
+        for (let i in this.stations) {
+          if (this.stations[i].nom_sommet.toLowerCase() === end.toLowerCase()) {
+            var arrivee = i;
+            break;
+          }
+        }
+        const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/shorterPath/${depart}/${arrivee}`);
+        this.path = response.data.result;
+        console.log("Shortest path fetched successfully:", this.path);
+      } catch (error) {
+        console.error("Error fetching shortest path:", error);
+        throw error;
+      }
+    },
   },
   mounted() {
     this.fetchStations();
-    console.log("Mounted Home component");
   },
   computed : {
     filteredStartStations() {

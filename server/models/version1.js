@@ -1,16 +1,17 @@
 import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 export function fetchJson(path) {
-    const fichier = fs.readFileSync(path)
-    return JSON.parse(fichier)
+    const fichier = fs.readFileSync(path);
+    return JSON.parse(fichier);
 }
 
 export function isConnexe(matrix){
-    prev_matrix = matrix
-    new_matrix = matrix
+    let prev_matrix = matrix
+    let new_matrix = matrix
     do{
         prev_matrix = new_matrix
 
@@ -61,26 +62,20 @@ export function equalMatrix(a, b) {
     return true;
 }
 
-export function createMatrix(sommets, arretes){
-    let adj_matrix = []
+export function createMatrix(sommets, arretes) {
+    const n = sommets.length;
+    const adj_matrix = Array.from({ length: n }, () => Array(n).fill(0));
 
-    //création des sommets
-    for (let i in sommets){
-        adj_matrix.push([])
-        for (let j in sommets){
-            adj_matrix[i].push(0)
+    for (const arrete of arretes) {
+        const i = arrete.num_sommet1;
+        const j = arrete.num_sommet2;
+        const t = arrete.temps_en_secondes;
 
-            //remplissage des arrêtes
-            for(let k in arretes){
-                if ((arretes[k]["num_sommet1"] == i && arretes[k]["num_sommet2"] == j) || (arretes[k]["num_sommet1"] == j && arretes[k]["num_sommet2"] == i)){
-                    adj_matrix[i][j] = arretes[k]["temps_en_secondes"]
-                    break
-                }
-            }
-        }
+        adj_matrix[i][j] = t;
+        adj_matrix[j][i] = t; // si le graphe est non orienté
     }
 
-    return adj_matrix
+    return adj_matrix;
 }
 
 export function kruskal(sommets, arretes){
@@ -192,42 +187,60 @@ export function dijkstra(graph, start) {
     return { distances, previous };
 }
 
-export function shorterPath(start, end){
-    const summits = "../Data/sommetsV1.json"
-    const arretes = "../Data/arretesV1.json"
-    const graph = createMatrix(fetchJson(summits), fetchJson(arretes));
-    const result = dijkstra(graph, start)
-    const sommets = fetchJson(summits);
-    let way = [{"sommet" : end}]
-    for (let i in sommets){
-        if (sommets[i].num_sommet == end){
-            way[0]["nom"] = sommets[i].nom_sommet
-            way[0]["ligne"] = sommets[i].numéro_ligne
-            break
+export async function shorterPath(start, end) {
+    const sommetsPath = new URL('../Data/sommetsV1.json', import.meta.url);
+    const arretesPath = new URL('../Data/arretesV1.json', import.meta.url);
+
+    const sommets = fetchJson(sommetsPath.pathname);
+    const arretes = fetchJson(arretesPath.pathname);
+    const graph = fetchJson('../Data/matrice_adjacence.json');
+
+    if (!isConnexe(graph.map(row => row.slice()))) {
+        throw new Error('Le graphe n\'est pas connexe.');
+        console.log("Le graphe n'est pas connexe");
+        return;
+    }
+
+    console.log(`Recherche du chemin le plus court de ${start} à ${end}`);
+
+    const result = dijkstra(graph, parseInt(start, 10));
+
+    let way = [{ "sommet": parseInt(end, 10) }];
+    for (let s of sommets) {
+        if (s.num_sommet == end) {
+            way[0].nom = s.nom_sommet;
+            way[0].ligne = s.numéro_ligne;
+            break;
         }
     }
-    let time = result.distances[end]
-    let summit = end
-    while (summit !== start) {
-        way.push({"sommet" : result.previous[summit]})
-        summit = result.previous[summit]
+
+    let time = result.distances[end];
+    let summit = end;
+    while (parseInt(summit, 10) != parseInt(start, 10)) {
+        summit = parseInt(result.previous[summit], 10);
+        way.push({ "sommet": summit });
     }
-    way.reverse()
-    for (let i in way){
-        for (let j in sommets){
-            if (sommets[j]["num_sommet"] == way[i].sommet){
-                way[i]["nom"] = sommets[j].nom_sommet
-                way[i]["ligne"] = sommets[j].numéro_ligne
-                break
+
+    way.reverse();
+
+    for (let w of way) {
+        for (let s of sommets) {
+            if (s.num_sommet == w.sommet) {
+                w.nom = s.nom_sommet;
+                w.ligne = s.numéro_ligne;
+                break;
             }
         }
     }
-    return {
-        "path": way,
-        "time": time,
-        "start": start,
-        "end": end
-    }
+
+    const answer = {
+        path: way,
+        time: time,
+        start: parseInt(start),
+        end: parseInt(end)
+    };
+
+    return answer;
 }
 
 export function getAllStations() {

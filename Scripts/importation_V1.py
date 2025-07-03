@@ -90,3 +90,33 @@ with open("./data/arretesV1.json", "w") as fichier:
 fichier.close()
 
 print("\nArrêtes écries avec fichier dans 'data/arretesV1.json'")
+
+def lire_json(fichier):
+    with open(fichier, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+def create_matrix(sommets, arretes):
+    n = len(sommets)
+    adj_matrix = [ [0]*n for _ in range(n) ]
+
+    for arrete in arretes:
+        i = arrete["num_sommet1"]
+        j = arrete["num_sommet2"]
+        t = arrete["temps_en_secondes"]
+        adj_matrix[i][j] = t
+        adj_matrix[j][i] = t  # Si le graphe est non orienté
+
+    return adj_matrix
+
+def ecrire_json(objet, nom_fichier):
+    with open(nom_fichier, 'w', encoding='utf-8') as f:
+        json.dump(objet, f, indent=4, ensure_ascii=False)
+
+
+# Création de la matrice
+matrice = create_matrix(sommets, arretes)
+
+ecrire_json(matrice, "matrice_adjacence.json")
+
+# Affichage
+print(matrice[0][3])
