@@ -99,8 +99,11 @@ export default {
   data() {
     return {
       stops: [],
+      station: [],
       transfers: [],
-      station: []
+      lines: [],
+      matrice: [],
+      transitions: []
     };
   },
   methods: {
@@ -118,6 +121,22 @@ export default {
       try {
         const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/getTransfers`);
         this.transfers = response.data.transfers;
+        this.buildTransfersTransition();
+        return true;
+        //console.log("Transition :", this.transitions)
+      } catch (error) {
+        console.error("Erreur lors de la récupération des stops :", error);
+      }
+    },
+
+    async fetchLines() {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/getLines`);
+        this.lines = response.data.trips;
+        this.buildLinesTransition();
+
+        // Appeler buildGraph ici, car transfers et lines sont maintenant chargés
+        this.buildGraph();
       } catch (error) {
         console.error("Erreur lors de la récupération des stops :", error);
       }
@@ -130,12 +149,92 @@ export default {
           this.station.push(stop.stop_name);
         }
       }
-     
+      this.station.sort();
+    },
+
+    buildGraph(){
+      // Construction d'une map pour accès rapide aux coûts
+      const costMap = new Map();
+
+      for (const t of this.transitions) {
+        const key1 = `${t.from_stop_id}-${t.to_stop_id}`;
+        const key2 = `${t.to_stop_id}-${t.from_stop_id}`;
+        costMap.set(key1, t.cost);
+        costMap.set(key2, t.cost); // Graphe non orienté
+      }
+
+      this.matrice = [];
+
+      for (let i = 0; i < this.stops.length; i++) {
+        const row = [];
+        const stop1 = this.stops[i].stop_id;
+
+        for (let j = 0; j < this.stops.length; j++) {
+          const stop2 = this.stops[j].stop_id;
+          const cost = costMap.get(`${stop1}-${stop2}`) || 0;
+          row.push(cost);
+        }
+
+        this.matrice.push(row);
+      }
+    },
+
+    buildTransfersTransition(){
+      // On parcourt notre liste de transfers
+      for (let i = 0; i < this.transfers.length; i++){
+        //On crée un objet et on l'ajoute à notre liste de transitions
+        let transition = {
+          from_stop_id: this.transfers[i].from_stop_id,
+          to_stop_id: this.transfers[i].to_stop_id,
+          cost: parseInt(this.transfers[i].min_transfer_time, 10)
+        }
+        this.transitions.push(transition);
+      }
+    },
+
+    buildLinesTransition(){
+      const timeStringToSeconds = (timeStr) => {
+        const [hours, minutes, seconds] = timeStr.split(":").map(Number);
+        return hours * 3600 + minutes * 60 + seconds;
+      };
+
+      // On crée notre dictionnaire
+      var newTrips = new Map();
+      for (let i = 0; i < this.lines.length; i++){
+        if (!newTrips.has(this.lines[i].trip_id)){
+          newTrips.set(this.lines[i].trip_id, []);
+        }
+        newTrips.get(this.lines[i].trip_id).push(this.lines[i]);
+      }
+
+      // On trie notre dictionnaire
+      for (var [key, value] of newTrips) {
+        value.sort((a, b) => a.stop_sequence - b.stop_sequence);
+      }
+
+      // On rempli les transitions
+      for (var [key, value] of newTrips){
+        for (let i = 0; i < (value.length - 1); i++){
+          const departure = timeStringToSeconds(value[i].departure_time);
+          const arrival = timeStringToSeconds(value[i+1].arrival_time);
+          const cost = arrival - departure;
+
+          let transition = {
+            from_stop_id: value[i].stop_id,
+            to_stop_id: value[i+1].stop_id,
+            cost: cost
+          };
+          this.transitions.push(transition);
+        }
+      }
     }
   },
-  mounted() {
+  async mounted() {
     this.fetchStops();
-    this.fetchTransfers();
+    const transfersReady = await this.fetchTransfers();
+    if (transfersReady) {
+      await this.fetchLines(); // cela appellera ensuite buildGraph automatiquement
+    }
   },
 
   computed: {
