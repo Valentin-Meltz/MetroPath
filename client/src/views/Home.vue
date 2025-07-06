@@ -66,10 +66,20 @@
         <form class="space-y-4">
           <div v-show="activeTab === 'now'">
             <div class="mb-4">
-              <input type="text" placeholder="Point de départ" class="w-full p-2 border rounded" />
+              <select v-model="selectedStart" class="w-full p-2 border rounded">
+                <option value="" disabled selected hidden>Point de départ</option>
+                <option v-for="station in filteredStartStations" :key="station" :value="station">
+                  {{ station }}
+                </option>
+              </select>
             </div>
             <div class="mb-4">
-              <input type="text" placeholder="Destination" class="w-full p-2 border rounded" />
+              <select v-model="selectedEnd" class="w-full p-2 border rounded">
+                <option value="" disabled selected hidden>Destination</option>
+                <option v-for="station in filteredEndStations" :key="station" :value="station">
+                  {{ station }}
+                </option>
+              </select>
             </div>
           </div>
           <div v-show="activeTab === 'depart'">
@@ -80,10 +90,20 @@
               <input type="text" placeholder="Heure de depart" class="w-full p-2 border rounded" />
             </div>
             <div class="mb-4">
-              <input type="text" placeholder="Point de départ" class="w-full p-2 border rounded" />
+              <select v-model="selectedStart" class="w-full p-2 border rounded">
+                <option value="" disabled selected hidden>Point de départ</option>
+                <option v-for="station in filteredStartStations" :key="station" :value="station">
+                  {{ station }}
+                </option>
+              </select>
             </div>
             <div class="mb-4">
-              <input type="text" placeholder="Destination" class="w-full p-2 border rounded" />
+              <select v-model="selectedEnd" class="w-full p-2 border rounded">
+                <option value="" disabled selected hidden>Destination</option>
+                <option v-for="station in filteredEndStations" :key="station" :value="station">
+                  {{ station }}
+                </option>
+              </select>
             </div>
           </div>
           <div v-show="activeTab === 'arrivee'">
@@ -94,10 +114,20 @@
               <input type="text" placeholder="Heure de depart" class="w-full p-2 border rounded" />
             </div>
             <div class="mb-4">
-              <input type="text" placeholder="Point de départ" class="w-full p-2 border rounded" />
+              <select v-model="selectedStart" class="w-full p-2 border rounded">
+                <option value="" disabled selected hidden>Point de départ</option>
+                <option v-for="station in filteredStartStations" :key="station" :value="station">
+                  {{ station }}
+                </option>
+              </select>
             </div>
             <div class="mb-4">
-              <input type="text" placeholder="Destination" class="w-full p-2 border rounded" />
+              <select v-model="selectedEnd" class="w-full p-2 border rounded">
+                <option value="" disabled selected hidden>Destination</option>
+                <option v-for="station in filteredEndStations" :key="station" :value="station">
+                  {{ station }}
+                </option>
+              </select>
             </div>
           </div>
         </form>
@@ -125,6 +155,8 @@ import { ref, nextTick } from 'vue'
 const activeTab = ref('now')
 const started = ref(false)
 const formSection = ref(null)
+const selectedStart = ref('');
+const selectedEnd = ref('');
 
 function scrollToForm() {
   started.value = true
