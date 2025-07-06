@@ -83,3 +83,21 @@ app.get("/getTransfers", async (req, res) => {
     res.status(500).send({ success: false, message: "Erreur serveur." });
   }
 });
+
+// Route pour obtenir la deuxième partie des aretes
+app.get("/getLines", async (req, res) => {
+  try {
+    const [results, metadata] = await sequelize.query("SELECT trip_id, stop_id, arrival_time, departure_time, stop_sequence from selected_stop_times");
+    const trips = results.map(t => ({
+      trip_id: t.trip_id,
+      stop_id: t.stop_id,
+      arrival_time: t.arrival_time,
+      departure_time: t.departure_time,
+      stop_sequence: t.stop_sequence
+    }));
+    res.send({ success: true, trips });
+  } catch (err) {
+    console.error("Erreur lors de la récupération des transfert :", err);
+    res.status(500).send({ success: false, message: "Erreur serveur." });
+  }
+});
