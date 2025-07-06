@@ -27,7 +27,7 @@
     </section>
 
     <!-- Section de calcul de trajet -->
-    <section id="path" class="bg-white text-gray-900 py-20 px-6 md:px-16 lg:px-24 min-h-screen flex items-center">
+    <section id="path" class="bg-white text-gray-900 py-20 px-6 md:px-16 lg:px-24 min-h-screen flex-col items-center">
       <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
         <div>
           <p class="text-sm font-semibold uppercase pb-2">Rapidité</p>
@@ -72,14 +72,31 @@
           <img src="@/assets/TREATED-paris-metro-map.webp" alt="Illustration trajet" class="w-full h-auto max-w-md rounded-lg shadow-md" />
         </div>
       </div>
-      <div v-if="path.path.length > 0" class="md:col-span-2">
-        <h3 class="text-2xl font-bold mb-4">Itinéraire trouvé :</h3>
-        <p class="text-gray-700 mb-2">Temps estimé : {{ Math.round(path.time / 60) }} minutes</p>
-        <ul class="list-disc pl-5 space-y-2">
-          <li v-for="(station, index) in path.path" :key="index">
-            {{ station.nom }} ({{ station.ligne }})
+      
+      <div v-if="path.path.length > 0" class="md:col-span-2 mt-12 bg-gray-100 p-6 rounded-lg shadow-md">
+        <h3 class="text-2xl font-bold mb-4 text-gray-800">🗺️ Itinéraire trouvé</h3>
+        <p class="text-gray-700 mb-4">
+          ⏱️ Temps estimé :
+          <span class="font-semibold text-gray-900">
+            {{ Math.floor(path.time / 60) }} min {{ Math.round(path.time % 60) }} s
+          </span>
+        </p>
+        <ol class="list-decimal pl-6 space-y-3 text-gray-800">
+          <li
+            v-for="(station, index) in path.path"
+            :key="index"
+            class="flex items-center gap-3 p-2 bg-white rounded shadow-sm"
+          >
+            <span
+              class="inline-block w-5 h-5 rounded-full"
+              :style="{ backgroundColor: ligneHexCodes[String(station.ligne).trim().toLowerCase()] || '#999' }"
+            ></span>
+            <div>
+              <span class="font-medium">{{ station.nom }}</span>
+              <span class="ml-2 text-sm text-gray-500">({{ station.ligne }})</span>
+            </div>
           </li>
-        </ul>
+        </ol>
       </div>
     </section>
   </section>
@@ -111,12 +128,12 @@ export default {
         "6": "#6EC067",
         "7": "#F59BBB",
         "7bis": "#6ECA97",
-        "8": "#C9910D",
+        "8": "#CE5B0E",
         "9": "#B6BD00",
         "10": "#C9910D",
         "11": "#704B1C",
         "12": "#007852",
-        "13": "#6E6E6E",
+        "13": "#01A89E",
         "14": "#62259D"
       },
     };
