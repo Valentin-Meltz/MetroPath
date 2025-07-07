@@ -2,7 +2,6 @@
   <div class="min-h-screen bg-gradient-to-br from-blue-800 to-purple-700 text-white flex items-center justify-center px-6">
     <div class="max-w-4xl w-full grid md:grid-cols-2 gap-8 items-center">
       
-      <!-- TEXTE -->
       <div class="space-y-6">
         <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
           Trouvez <span class="text-yellow-400">l’itinéraire optimal</span>
@@ -25,7 +24,7 @@
       </div>
     </div>
   </div>
-  <section ref="formSection" class="min-h-screen bg-gradient-to-br from-blue-800 to-purple-700 text-white flex items-center justify-center px-6">
+  <section ref="formSection" class="min-h-screen bg-gradient-to-br from-blue-800 to-purple-700 text-white flex  items-center justify-center px-6">
     <div class="max-w-md mx-auto bg-white p-8 rounded-xl shadow-md text-gray-800">
       <div class="flex justify-center mb-6 gap-2">
         <button
@@ -63,7 +62,7 @@
         class="overflow-hidden ease-in-out"
         :class="activeTab !== '' ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'"
       >
-        <form class="space-y-4">
+        <form class="space-y-2">
           <div v-show="activeTab === 'now'">
             <div class="mb-4">
               <select v-model="selectedStart" class="w-full p-2 border rounded">
@@ -84,10 +83,33 @@
           </div>
           <div v-show="activeTab === 'depart'">
             <div class="mb-4">
-              <input type="text" placeholder="Date de depart" class="w-full p-2 border rounded" />
+              <label class="block mb-1 text-sm font-medium">Date de départ</label>
+              <input
+                type="date"
+                class="w-full p-2 border rounded"
+                v-model="departureDate"
+                :min="minDate"
+              />
             </div>
             <div class="mb-4">
-              <input type="text" placeholder="Heure de depart" class="w-full p-2 border rounded" />
+              <label class="block mb-1 text-sm font-medium">Heure de départ</label>
+              <div class="flex gap-2">
+                <select v-model="departureHour" class="w-1/2 p-2 border rounded">
+                  <option v-for="h in 24" :key="h" :value="String(h-1).padStart(2, '0')">
+                    {{ String(h-1).padStart(2, '0') }}
+                  </option>
+                </select>
+                <span>:</span>
+                <select v-model="departureMinute" class="w-1/2 p-2 border rounded">
+                  <option
+                    v-for="m in [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]"
+                    :key="m"
+                    :value="String(m).padStart(2, '0')"
+                  >
+                    {{ String(m).padStart(2, '0') }}
+                  </option>
+                </select>
+              </div>
             </div>
             <div class="mb-4">
               <select v-model="selectedStart" class="w-full p-2 border rounded">
@@ -108,10 +130,33 @@
           </div>
           <div v-show="activeTab === 'arrivee'">
             <div class="mb-4">
-              <input type="text" placeholder="Date de depart" class="w-full p-2 border rounded" />
+              <label class="block mb-1 text-sm font-medium">Date d'arriver</label>
+              <input
+                type="date"
+                class="w-full p-2 border rounded"
+                v-model="arrivalDate"
+                :min="minDate"
+              />
             </div>
             <div class="mb-4">
-              <input type="text" placeholder="Heure de depart" class="w-full p-2 border rounded" />
+              <label class="block mb-1 text-sm font-medium">Heure d'arriver</label>
+              <div class="flex gap-2">
+                <select v-model="arrivalHour" class="w-1/2 p-2 border rounded">
+                  <option v-for="h in 24" :key="h" :value="String(h).padStart(2, '0')">
+                    {{ String(h).padStart(2, '0') }}
+                  </option>
+                </select>
+                <span>:</span>
+                <select v-model="arrivalMinute" class="w-1/2 p-2 border rounded">
+                  <option
+                    v-for="m in [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]"
+                    :key="m"
+                    :value="String(m).padStart(2, '0')"
+                  >
+                    {{ String(m).padStart(2, '0') }}
+                  </option>
+                </select>
+              </div>
             </div>
             <div class="mb-4">
               <select v-model="selectedStart" class="w-full p-2 border rounded">
@@ -130,25 +175,23 @@
               </select>
             </div>
           </div>
+          <div class="flex justify-center mt-2">
+              <button class="bg-yellow-400 text-blue-900 font-bold py-3 px-6 rounded-full text-lg hover:bg-yellow-300 transition transform hover:scale-105 duration-300 ease-in-out">
+                🚀 Trouver mon itinéraire !
+              </button>
+          </div>
         </form>
       </div>
     </div>
   </section>
+  <section class="min-h-screen bg-gradient-to-br from-blue-800 to-purple-700 text-white flex  items-center justify-center px-6">
+    <div class="w-full max-w-4xl h-[500px] mt-12 overflow-hidden rounded-lg shadow-lg">
+      <MapView :points="mapPoints" />
+    </div>
+  </section>
+
 </template>
-/*
--- On récupère au chargement de la page la matrice depuis toutes les routes
--- On stock la matrice dans un json ainsi que toutes les stations (faudra faire un taf sur les duplications)
--- On get par input les stations choisis
--- On utilise la matrice pour calculer les chemins les plus court de tous les stop de départ vers tous les stop d'arriver
--- On prend le chemins le plus court parmis cette liste
--- On l'affiche
 
--- Avantage : 
-    - On forme la matrice qu'une seul fois puisqu'après elle est stocké en JSON
-
--- Inconvénients
-    - Beaucoup de calcul de chemin le plus cours à faire
-*/
 <script setup>
 import { ref, nextTick } from 'vue'
 
@@ -168,16 +211,34 @@ function scrollToForm() {
 
 <script>
 import axios from 'axios';
+import MapView from '@/components/MapView.vue';
+
 export default {
   name: 'Home',
+  components: {
+    MapView,
+  },
   data() {
     return {
+      /* Data pour le graphe */
       stops: [],
       station: [],
       transfers: [],
       lines: [],
       matrice: [],
-      transitions: []
+      transitions: [],
+
+      /* Data pour le front */
+      minDate: Date(),
+      departureDate: Date(),
+      departureHour: parseInt(),
+      departureMinute: parseInt(),
+      arrivalDate: Date(),
+      arrivalHour: parseInt(),
+      arrivalMinute: parseInt(),
+      
+      /* Points à afficher sur la carte */
+      mapPoints: [],
     };
   },
   methods: {
@@ -309,6 +370,12 @@ export default {
     if (transfersReady) {
       await this.fetchLines(); // cela appellera ensuite buildGraph automatiquement
     }
+    // Ajout temporaire de points pour la carte
+    this.mapPoints = [
+      { lat: 48.8566, lng: 2.3522 },
+      { lat: 48.8738, lng: 2.2950 },
+      { lat: 48.8584, lng: 2.2945 }
+    ];
   },
 
   computed: {
