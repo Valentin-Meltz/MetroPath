@@ -83,10 +83,15 @@ async function getTimeGraph(date, time) {
             return h * 3600 + m * 60 + s >= departureLimit;
         });
 
+        console.log("🔍 Total avant filtrage :", allEdges.length);
+        console.log("⏰ Après filtrage :", filteredEdges.length);
+
         // 4. Construire le graphe
         const graph = model.buildGraph(filteredEdges);
+        
+        console.log("🎯 Sommets du graphe (from_stops):", [...graph.keys()]);
 
-        // 5. (à venir : plus court chemin)
+        // 5. plus court chemin
         return {
             nodes: graph.size,
             graph

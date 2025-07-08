@@ -183,8 +183,8 @@ export default {
       transitions: [],
 
       /* Data pour le front */
-      minDate: "2023-12-31",
-      maxDate: "2024-12-31",
+      minDate: "2024-02-27",
+      maxDate: "2024-03-30",
       // Initialisation des dates et heures
       departureDate: new Date().toISOString().slice(0, 10),
       arrivalDate: new Date().toISOString().slice(0, 10),

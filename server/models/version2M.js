@@ -31,6 +31,7 @@ export async function maxDate() {
 export async function getTripsForDate(date) {
   const trips = await requests.getTripsForDate(date);
   console.log("\n - (models) Trips récupérés :", trips.length);
+  console.log("📆 Trips récupérés pour", date, ":", trips.length);
   return trips;
 }
 
@@ -43,6 +44,7 @@ export async function getStopTimesForDate(date) {
 export async function getIntraTripEdgesForDate(date) {
   const edges = await requests.getIntraTripEdgesForDate(date);
   console.log("\n - (models) Arêtes intra-trip générées :", edges.length);
+  console.log("🛤️ Intra-trip edges :", edges.length);
   return edges;
 }
 
@@ -55,6 +57,9 @@ export async function getTransferEdges() {
 export function buildGraph(edges) {
   const graph = new Map();
   for (const edge of edges) {
+    if (!edge.from_stop || !edge.to_stop) {
+      continue;
+    }
     const key = edge.from_stop;
     if (!graph.has(key)) {
       graph.set(key, []);
@@ -75,9 +80,14 @@ export function findFastestPath(graph, startStop, endStop, departureTimeStr) {
   const visited = new Map();
 
   while (!pq.isEmpty()) {
-    const { stop, time, path } = pq.dequeue().element;
+    const dequeued = pq.dequeue();
+    if (!dequeued || !dequeued.element) continue;
+    const { stop, time, path } = dequeued.element;
 
-    if (visited.has(stop) && visited.get(stop) <= time) continue;
+    if (visited.has(stop) && visited.get(stop) <= time) {
+      console.log(`⛔ Stop ${stop} déjà visité avec temps ${visited.get(stop)} <= ${time}`);
+      continue;
+    }
     visited.set(stop, time);
 
     if (stop === endStop) {
