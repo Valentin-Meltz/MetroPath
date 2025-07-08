@@ -1,67 +1,39 @@
 <template>
   <div class="min-h-screen bg-gradient-to-br from-blue-800 to-purple-700 text-white flex items-center justify-center px-6">
     <div class="max-w-4xl w-full grid md:grid-cols-2 gap-8 items-center">
-      
       <div class="space-y-6">
         <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
-          Trouvez <span class="text-yellow-400">l’itinéraire optimal</span>
-          <strong> à tout moment</strong>, vers n’importe quelle destination !
+          Trouvez <span class="text-yellow-400">l’itinéraire optimal</span><strong> à tout moment</strong>, vers n’importe quelle destination !
         </h1>
         <p class="text-lg text-gray-200">
           Notre technologie analyse la ville en <strong>temps réel</strong> pour vous proposer le trajet le plus rapide,
           le plus fluide, et le plus intelligent sans perte de temps.
         </p>
-        <button @click="scrollToForm"
-          class="bg-yellow-400 text-blue-900 font-bold py-3 px-6 rounded-full text-lg hover:bg-yellow-300 transition transform hover:scale-105 duration-300 ease-in-out">
+        <button @click="scrollToForm" class="bg-yellow-400 text-blue-900 font-bold py-3 px-6 rounded-full text-lg hover:bg-yellow-300 transition transform hover:scale-105 duration-300 ease-in-out">
           🚀 Trouver mon itinéraire !
         </button>
       </div>
 
       <div class="hidden md:block overflow-hidden rounded-2xl shadow-xl transform transition-transform duration-300 ease-in-out hover:scale-105">
-          <img src="@/assets/plan.png"
-          alt="Navigation map"
-          class="w-full" />
+          <img src="@/assets/plan.png" alt="Navigation map" class="w-full"/>
       </div>
     </div>
   </div>
-  <section ref="formSection" class="min-h-screen bg-gradient-to-br from-blue-800 to-purple-700 text-white flex  items-center justify-center px-6">
+  <section ref="formSection" class="min-h-screen bg-gradient-to-tr from-blue-800 to-purple-700 text-white flex  items-center justify-center px-6">
     <div class="max-w-md mx-auto bg-white p-8 rounded-xl shadow-md text-gray-800">
       <div class="flex justify-center mb-6 gap-2">
-        <button
-          @click="activeTab = 'now'"
-          :class="activeTab === 'now'
-            ? 'bg-gray-300 border-black scale-105'
-            : 'bg-white border-black hover:scale-105 hover:bg-gray-100'"
-          class="flex-1 py-2 px-6 rounded-lg transition transform border whitespace-nowrap mx-1"
-          type="button"
-        >
+        <button @click="activeTab = 'now'" :class="activeTab === 'now' ? 'bg-gray-300 border-black scale-105' : 'bg-white border-black hover:scale-105 hover:bg-gray-100'" class="flex-1 py-2 px-6 rounded-lg transition transform border whitespace-nowrap mx-1" type="button">
           Partir maintenant
         </button>
-        <button
-          @click="activeTab = 'depart'"
-          :class="activeTab === 'depart' 
-            ? 'bg-gray-300 border-black scale-105'
-            : 'bg-white border-black hover:scale-105 hover:bg-gray-100'"
-          class="flex-1 py-2 px-6 rounded-lg transition transform border whitespace-nowrap mx-1"
-          type="button"
-        >
+        <button @click="activeTab = 'depart'" :class="activeTab === 'depart'  ? 'bg-gray-300 border-black scale-105' : 'bg-white border-black hover:scale-105 hover:bg-gray-100'" class="flex-1 py-2 px-6 rounded-lg transition transform border whitespace-nowrap mx-1" type="button">
           Partir à
         </button>
-        <button
-          @click="activeTab = 'arrivee'"
-          :class="activeTab === 'arrivee' 
-            ? 'bg-gray-300 border-black scale-105'
-            : 'bg-white border-black hover:scale-105 hover:bg-gray-100'"
-          class="flex-1 py-2 px-6 rounded-lg transition transform border whitespace-nowrap mx-1"
-          type="button" 
-        >
+        <button @click="activeTab = 'arrivee'" :class="activeTab === 'arrivee'  ? 'bg-gray-300 border-black scale-105' : 'bg-white border-black hover:scale-105 hover:bg-gray-100'" class="flex-1 py-2 px-6 rounded-lg transition transform border whitespace-nowrap mx-1" type="button">
           Arriver à
         </button>
       </div>
-      <div 
-        class="overflow-hidden ease-in-out"
-        :class="activeTab !== '' ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'"
-      >
+
+      <div class="overflow-hidden ease-in-out" :class="activeTab !== '' ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'">
         <form class="space-y-2">
           <div v-show="activeTab === 'now'">
             <div class="mb-4">
@@ -81,15 +53,11 @@
               </select>
             </div>
           </div>
+
           <div v-show="activeTab === 'depart'">
             <div class="mb-4">
               <label class="block mb-1 text-sm font-medium">Date de départ</label>
-              <input
-                type="date"
-                class="w-full p-2 border rounded"
-                v-model="departureDate"
-                :min="minDate"
-              />
+              <input type="date" class="w-full p-2 border rounded" v-model="departureDate" :min="minDate"/>
             </div>
             <div class="mb-4">
               <label class="block mb-1 text-sm font-medium">Heure de départ</label>
@@ -101,11 +69,7 @@
                 </select>
                 <span>:</span>
                 <select v-model="departureMinute" class="w-1/2 p-2 border rounded">
-                  <option
-                    v-for="m in [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]"
-                    :key="m"
-                    :value="String(m).padStart(2, '0')"
-                  >
+                  <option v-for="m in [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]" :key="m" :value="String(m).padStart(2, '0')">
                     {{ String(m).padStart(2, '0') }}
                   </option>
                 </select>
@@ -128,15 +92,11 @@
               </select>
             </div>
           </div>
+
           <div v-show="activeTab === 'arrivee'">
             <div class="mb-4">
               <label class="block mb-1 text-sm font-medium">Date d'arriver</label>
-              <input
-                type="date"
-                class="w-full p-2 border rounded"
-                v-model="arrivalDate"
-                :min="minDate"
-              />
+              <input type="date" class="w-full p-2 border rounded" v-model="arrivalDate" :min="minDate"/>
             </div>
             <div class="mb-4">
               <label class="block mb-1 text-sm font-medium">Heure d'arriver</label>
@@ -148,11 +108,7 @@
                 </select>
                 <span>:</span>
                 <select v-model="arrivalMinute" class="w-1/2 p-2 border rounded">
-                  <option
-                    v-for="m in [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]"
-                    :key="m"
-                    :value="String(m).padStart(2, '0')"
-                  >
+                  <option v-for="m in [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]" :key="m" :value="String(m).padStart(2, '0')">
                     {{ String(m).padStart(2, '0') }}
                   </option>
                 </select>
@@ -175,21 +131,21 @@
               </select>
             </div>
           </div>
+
           <div class="flex justify-center mt-2">
-              <button class="bg-yellow-400 text-blue-900 font-bold py-3 px-6 rounded-full text-lg hover:bg-yellow-300 transition transform hover:scale-105 duration-300 ease-in-out">
-                🚀 Trouver mon itinéraire !
-              </button>
+            <button class="bg-yellow-400 text-blue-900 font-bold py-3 px-6 rounded-full text-lg hover:bg-yellow-300 transition transform hover:scale-105 duration-300 ease-in-out">
+              🚀 Trouver mon itinéraire !
+            </button>
           </div>
         </form>
       </div>
     </div>
   </section>
   <section class="min-h-screen bg-gradient-to-br from-blue-800 to-purple-700 text-white flex  items-center justify-center px-6">
-    <div class="w-full max-w-4xl h-[500px] mt-12 overflow-hidden rounded-lg shadow-lg">
+    <div class="w-full max-w-4xl h-[500px] overflow-hidden shadow">
       <MapView :points="mapPoints" />
     </div>
   </section>
-
 </template>
 
 <script setup>
@@ -314,7 +270,7 @@ export default {
       }
     },
 
-    buildTransfersTransition(){
+    buildTransfersTransition() {
       // On parcourt notre liste de transfers
       for (let i = 0; i < this.transfers.length; i++){
         //On crée un objet et on l'ajoute à notre liste de transitions
@@ -327,7 +283,7 @@ export default {
       }
     },
 
-    buildLinesTransition(){
+    buildLinesTransition() {
       const timeStringToSeconds = (timeStr) => {
         const [hours, minutes, seconds] = timeStr.split(":").map(Number);
         return hours * 3600 + minutes * 60 + seconds;
@@ -362,7 +318,7 @@ export default {
           this.transitions.push(transition);
         }
       }
-    }
+    },
   },
   async mounted() {
     this.fetchStops();

@@ -1,7 +1,7 @@
 <template>
-  <header class="bg-white shadow">
+  <header class="bg-gradient-to-tr from-blue-800 to-purple-700 shadow">
     <div class="px-4 flex justify-between items-center">
-      <p class="text-xl font-bold text-black">MetroPath</p>
+      <p class="text-xl font-bold text-white">MetroPath</p>
         <div class="flex items-center justify-center py-4">
             <div class="relative group">
                 <button class="relative inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
