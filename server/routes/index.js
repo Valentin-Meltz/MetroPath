@@ -1,35 +1,11 @@
-const { Stop } = require('../models/Stop');
-const express = require('express');
+import express from 'express';
+import * as controller from '../controllers/Version2.js';
+
 const router = express.Router();
 
-router.get('/ping', (req, res) => {
-  res.send('pong');
-});
+router.get('/stops', controller.getStops);
+router.get('/transfers', controller.getTransfers);
+router.get('/lines', controller.getLines);
+router.get('/shorter-path', controller.shorterPath);
 
-router.get('/buildGraph', async (req, res) => {
-  try {
-    const stops = await Stop.findAll();
-    const graph = {};
-
-    stops.forEach(stop => {
-      graph[stop.stop_id] = []; // initialise chaque sommet sans arêtes
-    });
-
-    res.json({ message: 'Graph initialized with stops as vertices.', graph });
-  } catch (error) {
-    console.error('Erreur lors de la création du graphe :', error);
-    res.status(500).json({ error: 'Erreur lors de la création du graphe.' });
-  }
-});
-
-router.get('/stops', async (req, res) => {
-  try {
-    const stops = await Stop.findAll();
-    res.json(stops);
-  } catch (error) {
-    console.error('Erreur lors de la récupération des stops :', error);
-    res.status(500).json({ error: 'Erreur lors de la récupération des stops.' });
-  }
-});
-
-module.exports = router;
+export default router;
