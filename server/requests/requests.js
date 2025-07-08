@@ -88,7 +88,7 @@ export async function getPreviousStops(stopId) {
     }
 }
 
-export async function getTransferConnections(stopId) {
+export async function getTransferConnectionsRaw(stopId) {
     try {
         const query = `
             SELECT s.stop_id, s.stop_name
@@ -163,68 +163,6 @@ export async function getLinesServingStop(stopId) {
     }
 }
 
-export async function getFirstTrip(stopId, datetime) {
-    try {
-        // Étape 1 : récupérer le parent_station du stop de départ
-        const parentQuery = `
-            SELECT parent_station
-            FROM stops
-            WHERE stop_id = $1
-        `;
-        const parentResult = await client.query(parentQuery, [stopId]);
-
-        if (parentResult.rows.length === 0 || !parentResult.rows[0].parent_station) {
-            throw new Error("Station inconnue ou sans correspondance.");
-        }
-
-        const parentStation = parentResult.rows[0].parent_station;
-
-        // Étape 2 : récupérer tous les stop_id dans cette même station
-        const stopsQuery = `
-            SELECT stop_id
-            FROM stops
-            WHERE parent_station = $1
-        `;
-        const stopsResult = await client.query(stopsQuery, [parentStation]);
-        const stopIds = stopsResult.rows.map(r => r.stop_id);
-
-        const tripsMap = new Map();
-
-        // Étape 3 : pour chaque quai (stop_id), chercher les trips valides
-        for (const stop of stopIds) {
-            const tripQuery = `
-                SELECT t.trip_id, t.route_id, t.direction_id, st.departure_time
-                FROM stop_times st
-                JOIN trips t ON t.trip_id = st.trip_id
-                WHERE st.stop_id = $1
-                  AND st.departure_time >= $2
-                ORDER BY st.departure_time ASC
-            `;
-            const tripResult = await client.query(tripQuery, [stop, datetime]);
-
-            for (const row of tripResult.rows) {
-                const key = `${row.route_id}_${row.direction_id}`;
-                if (!tripsMap.has(key)) {
-                    tripsMap.set(key, {
-                        route_id: row.route_id,
-                        direction: row.direction_id,
-                        trip_id: row.trip_id,
-                        stop_id: stop,
-                        departure_time: row.departure_time
-                    });
-                }
-            }
-        }
-
-        console.log("✅ First trips (dans la même station) trouvés :", tripsMap.size);
-        return Array.from(tripsMap.values());
-
-    } catch (err) {
-        console.error("❌ Erreur dans getFirstTrip :", err);
-        throw new Error("Erreur lors de la récupération des premiers trips par station.");
-    }
-}
-
 export async function getStopTime(tripId, stopId) {
     try {
         const query = `
@@ -248,6 +186,222 @@ export async function getStopTime(tripId, stopId) {
         };
     } catch (err) {
         console.error("❌ Erreur lors de la récupération des horaires du trip :", err);
+        throw new Error("Erreur serveur.");
+    }
+}
+
+export async function getMaxDate() {
+  try {
+    const result = await client.query(`SELECT MAX(end_date) AS max_date FROM calendar`);
+    return result.rows[0].max_date;
+  } catch (err) {
+    console.error("Erreur lors de la récupération de la date max :", err);
+    throw new Error("Erreur serveur.");
+  }
+}
+
+export async function getTripsForDate(targetDate) {
+    try {
+        const query = `
+            WITH target AS (
+                SELECT $1::date AS date,
+                       EXTRACT(DOW FROM $1::date) AS weekday
+            ),
+            calendar_services AS (
+                SELECT service_id
+                FROM calendar, target
+                WHERE target.date BETWEEN start_date AND end_date
+                  AND (
+                       (target.weekday = 0 AND sunday) OR
+                       (target.weekday = 1 AND monday) OR
+                       (target.weekday = 2 AND tuesday) OR
+                       (target.weekday = 3 AND wednesday) OR
+                       (target.weekday = 4 AND thursday) OR
+                       (target.weekday = 5 AND friday) OR
+                       (target.weekday = 6 AND saturday)
+                  )
+            ),
+            calendar_exceptions AS (
+                SELECT service_id,
+                       CASE exception_type
+                            WHEN 1 THEN 'add'
+                            WHEN 2 THEN 'remove'
+                       END AS action
+                FROM calendar_dates
+                JOIN target ON target.date = calendar_dates.date::date
+            ),
+            valid_services AS (
+                SELECT service_id FROM calendar_services
+                UNION
+                SELECT service_id FROM calendar_exceptions WHERE action = 'add'
+                EXCEPT
+                SELECT service_id FROM calendar_exceptions WHERE action = 'remove'
+            )
+            SELECT trip_id
+            FROM trips
+            WHERE service_id IN (SELECT service_id FROM valid_services);
+        `;
+        const result = await client.query(query, [targetDate]);
+        console.log("✅ Trips actifs récupérés pour la date :", targetDate, "=>", result.rows.length);
+        return result.rows;
+    } catch (err) {
+        console.error("❌ Erreur lors de la récupération des trips actifs :", err);
+        throw new Error("Erreur serveur.");
+    }
+}
+
+export async function getStopTimesForDate(targetDate) {
+    try {
+        const query = `
+            WITH target AS (
+                SELECT $1::date AS date,
+                       EXTRACT(DOW FROM $1::date) AS weekday
+            ),
+            calendar_services AS (
+                SELECT service_id
+                FROM calendar, target
+                WHERE target.date BETWEEN start_date AND end_date
+                  AND (
+                       (target.weekday = 0 AND sunday) OR
+                       (target.weekday = 1 AND monday) OR
+                       (target.weekday = 2 AND tuesday) OR
+                       (target.weekday = 3 AND wednesday) OR
+                       (target.weekday = 4 AND thursday) OR
+                       (target.weekday = 5 AND friday) OR
+                       (target.weekday = 6 AND saturday)
+                  )
+            ),
+            calendar_exceptions AS (
+                SELECT service_id,
+                       CASE exception_type
+                            WHEN 1 THEN 'add'
+                            WHEN 2 THEN 'remove'
+                       END AS action
+                FROM calendar_dates
+                JOIN target ON target.date = calendar_dates.date::date
+            ),
+            valid_services AS (
+                SELECT service_id FROM calendar_services
+                UNION
+                SELECT service_id FROM calendar_exceptions WHERE action = 'add'
+                EXCEPT
+                SELECT service_id FROM calendar_exceptions WHERE action = 'remove'
+            ),
+            active_trips AS (
+                SELECT trip_id
+                FROM trips
+                WHERE service_id IN (SELECT service_id FROM valid_services)
+            )
+            SELECT
+                st.trip_id,
+                st.stop_id,
+                st.stop_sequence,
+                st.arrival_time,
+                st.departure_time
+            FROM stop_times st
+            JOIN active_trips at ON at.trip_id = st.trip_id
+            ORDER BY st.trip_id, st.stop_sequence;
+        `;
+        const result = await client.query(query, [targetDate]);
+        console.log("✅ stop_times pour trips actifs récupérés :", result.rows.length);
+        return result.rows;
+    } catch (err) {
+        console.error("❌ Erreur lors de la récupération des stop_times :", err);
+        throw new Error("Erreur serveur.");
+    }
+}
+
+export async function getIntraTripEdgesForDate(targetDate) {
+    try {
+        const query = `
+            WITH target AS (
+                SELECT $1::date AS date,
+                       EXTRACT(DOW FROM $1::date) AS weekday
+            ),
+            calendar_services AS (
+                SELECT service_id
+                FROM calendar, target
+                WHERE target.date BETWEEN start_date::date AND end_date::date
+                  AND (
+                       (target.weekday = 0 AND sunday = 1) OR
+                       (target.weekday = 1 AND monday = 1) OR
+                       (target.weekday = 2 AND tuesday = 1) OR
+                       (target.weekday = 3 AND wednesday = 1) OR
+                       (target.weekday = 4 AND thursday = 1) OR
+                       (target.weekday = 5 AND friday = 1) OR
+                       (target.weekday = 6 AND saturday = 1)
+                  )
+            ),
+            calendar_exceptions AS (
+                SELECT service_id,
+                       CASE exception_type
+                            WHEN 1 THEN 'add'
+                            WHEN 2 THEN 'remove'
+                       END AS action
+                FROM calendar_dates
+                JOIN target ON target.date = calendar_dates.date::date
+            ),
+            valid_services AS (
+                SELECT service_id FROM calendar_services
+                UNION
+                SELECT service_id FROM calendar_exceptions WHERE action = 'add'
+                EXCEPT
+                SELECT service_id FROM calendar_exceptions WHERE action = 'remove'
+            ),
+            active_trips AS (
+                SELECT trip_id
+                FROM trips
+                WHERE service_id IN (SELECT service_id FROM valid_services)
+            ),
+            ordered_stops AS (
+                SELECT
+                    st.trip_id,
+                    st.stop_id,
+                    st.stop_sequence,
+                    st.arrival_time,
+                    st.departure_time,
+                    LEAD(st.stop_id) OVER (PARTITION BY st.trip_id ORDER BY st.stop_sequence) AS next_stop_id,
+                    LEAD(st.arrival_time) OVER (PARTITION BY st.trip_id ORDER BY st.stop_sequence) AS next_arrival_time
+                FROM stop_times st
+                JOIN active_trips at ON at.trip_id = st.trip_id
+            )
+            SELECT
+                trip_id,
+                stop_id AS from_stop_id,
+                next_stop_id AS to_stop_id,
+                departure_time,
+                next_arrival_time AS arrival_time
+            FROM ordered_stops
+            WHERE next_stop_id IS NOT NULL;
+        `;
+        const result = await client.query(query, [targetDate]);
+        console.log("✅ Arêtes intra-trip générées :", result.rows.length);
+        return result.rows;
+    } catch (err) {
+        console.error("❌ Erreur lors de la génération des arêtes intra-trip :", err);
+        throw new Error("Erreur serveur.");
+    }
+}
+
+export async function getTransferEdges() {
+    try {
+        const query = `
+            SELECT from_stop_id, to_stop_id, COALESCE(min_transfer_time::integer, 0) AS min_transfer_time
+            FROM transfers
+        `;
+        const result = await client.query(query);
+        console.log("✅ Arêtes de transfert récupérées :", result.rows.length);
+
+        return result.rows.map(row => ({
+            from_stop: row.from_stop_id,
+            to_stop: row.to_stop_id,
+            departure_time: null,
+            arrival_time: null,
+            min_transfer_time: row.min_transfer_time,
+            transfer: true
+        }));
+    } catch (err) {
+        console.error("❌ Erreur lors de la récupération des arêtes de transfert :", err);
         throw new Error("Erreur serveur.");
     }
 }

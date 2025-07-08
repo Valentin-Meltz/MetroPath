@@ -57,7 +57,7 @@
           <div v-show="activeTab === 'depart'">
             <div class="mb-4">
               <label class="block mb-1 text-sm font-medium">Date de départ</label>
-              <input type="date" class="w-full p-2 border rounded" v-model="departureDate" :min="minDate"/>
+              <input type="date" class="w-full p-2 border rounded" v-model="departureDate" :min="minDate" :max="maxDate"/>
             </div>
             <div class="mb-4">
               <label class="block mb-1 text-sm font-medium">Heure de départ</label>
@@ -96,7 +96,7 @@
           <div v-show="activeTab === 'arrivee'">
             <div class="mb-4">
               <label class="block mb-1 text-sm font-medium">Date d'arriver</label>
-              <input type="date" class="w-full p-2 border rounded" v-model="arrivalDate" :min="minDate"/>
+              <input type="date" class="w-full p-2 border rounded" v-model="arrivalDate" :min="minDate" :max="maxDate"/>
             </div>
             <div class="mb-4">
               <label class="block mb-1 text-sm font-medium">Heure d'arriver</label>
@@ -133,9 +133,9 @@
           </div>
 
           <div class="flex justify-center mt-2">
-            <button class="bg-yellow-400 text-blue-900 font-bold py-3 px-6 rounded-full text-lg hover:bg-yellow-300 transition transform hover:scale-105 duration-300 ease-in-out">
+            <div @click="getPath" class="bg-yellow-400 text-blue-900 font-bold py-3 px-6 rounded-full text-lg hover:bg-yellow-300 hover:cursor-pointer transition transform hover:scale-105 duration-300 ease-in-out">
               🚀 Trouver mon itinéraire !
-            </button>
+            </div>
           </div>
         </form>
       </div>
@@ -154,8 +154,6 @@ import { ref, nextTick } from 'vue'
 const activeTab = ref('now')
 const started = ref(false)
 const formSection = ref(null)
-const selectedStart = ref('');
-const selectedEnd = ref('');
 
 function scrollToForm() {
   started.value = true
@@ -185,13 +183,17 @@ export default {
       transitions: [],
 
       /* Data pour le front */
-      minDate: Date(),
-      departureDate: Date(),
-      departureHour: parseInt(),
-      departureMinute: parseInt(),
-      arrivalDate: Date(),
-      arrivalHour: parseInt(),
-      arrivalMinute: parseInt(),
+      minDate: "2023-12-31",
+      maxDate: "2024-12-31",
+      // Initialisation des dates et heures
+      departureDate: new Date().toISOString().slice(0, 10),
+      arrivalDate: new Date().toISOString().slice(0, 10),
+      // Initialisation correcte des heures/minutes actuelles
+      departureHour: String(new Date().getHours()).padStart(2, '0'),
+      departureMinute: String(new Date().getMinutes()).padStart(2, '0'),
+
+      selectedStart: '',
+      selectedEnd: '',
       
       /* Points à afficher sur la carte */
       mapPoints: [],
@@ -200,8 +202,8 @@ export default {
   methods: {
     async fetchStops() {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/getStops`);
-        this.stops = response.data.stops;
+        const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/stops`);
+        this.stops = response.data;
         this.buildStation();
       } catch (error) {
         console.error("Erreur lors de la récupération des stops :", error);
@@ -210,8 +212,8 @@ export default {
 
     async fetchTransfers() {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/getTransfers`);
-        this.transfers = response.data.transfers;
+        const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/transfers`);
+        this.transfers = response.data;
         this.buildTransfersTransition();
         return true;
         //console.log("Transition :", this.transitions)
@@ -222,8 +224,8 @@ export default {
 
     async fetchLines() {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/getLines`);
-        this.lines = response.data.trips;
+        const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/lines`);
+        this.lines = response.data;
         this.buildLinesTransition();
 
         // Appeler buildGraph ici, car transfers et lines sont maintenant chargés
@@ -241,6 +243,52 @@ export default {
         }
       }
       this.station.sort();
+    },
+
+    async getPath(){
+      // Récupérer les IDs des stations sélectionnées à partir de leurs noms
+      const startStation = this.stops.find(s => s.stop_name === this.selectedStart);
+      const endStation = this.stops.find(s => s.stop_name === this.selectedEnd);
+
+      if (!startStation || !endStation) {
+        console.error("Station de départ ou d'arrivée introuvable.");
+        return;
+      }
+
+      const startId = startStation.stop_id;
+      const endId = endStation.stop_id;
+
+      console.log("Départ :", startId, "Destination :", endId);
+
+      console.log("Date :", this.departureDate, "Heure :", this.departureHour, ":", this.departureMinute);
+
+      var date, time;
+      date = this.departureDate;
+      const h = this.departureHour;
+      const m = this.departureMinute;
+      time = `${h}:${m}:00`;
+      console.log("Départ à :", time);
+
+      if (!date || !time || !startId || !endId) {
+        console.error("Champs requis manquants :", { date, time, startId, endId });
+        return;
+      }
+
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/shorter-path`, {
+          params: {
+            from: startId,
+            to: endId,
+            date: date,
+            time: time
+          }
+        });
+        // Traite la réponse ici (par exemple, afficher le chemin sur la carte)
+        console.log('Itinéraire reçu:', response.data);
+        this.path = response.data;
+      } catch (error) {
+        console.error("Erreur lors de la récupération de l'itinéraire :", error);
+      }
     },
 
     buildGraph(){
@@ -332,6 +380,13 @@ export default {
       { lat: 48.8738, lng: 2.2950 },
       { lat: 48.8584, lng: 2.2945 }
     ];
+
+    try {
+      const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}/max-date`);
+      this.maxDate = response.data.maxDate;
+    } catch (err) {
+      console.error("Erreur lors de la récupération de la date max :", err);
+    }
   },
 
   computed: {

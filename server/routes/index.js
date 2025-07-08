@@ -1,5 +1,5 @@
 import express from 'express';
-import * as controller from '../controllers/Version2.js';
+import * as controller from '../controllers/Version2C.js';
 
 const router = express.Router();
 
@@ -7,5 +7,6 @@ router.get('/stops', controller.getStops);
 router.get('/transfers', controller.getTransfers);
 router.get('/lines', controller.getLines);
 router.get('/shorter-path', controller.shorterPath);
+router.get('/max-date', controller.maxDate);
 
 export default router;
