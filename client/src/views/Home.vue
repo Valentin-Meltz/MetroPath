@@ -133,7 +133,7 @@
           </div>
 
           <div class="flex justify-center mt-2">
-            <button class="bg-yellow-400 text-blue-900 font-bold py-3 px-6 rounded-full text-lg hover:bg-yellow-300 transition transform hover:scale-105 duration-300 ease-in-out">
+            <button type="button" @click="showFormSection = true" class="bg-yellow-400 text-blue-900 font-bold py-3 px-6 rounded-full text-lg hover:bg-yellow-300 transition transform hover:scale-105 duration-300 ease-in-out">
               🚀 Trouver mon itinéraire !
             </button>
           </div>
@@ -141,7 +141,7 @@
       </div>
     </div>
   </section>
-  <section class="min-h-screen bg-gradient-to-br from-blue-800 to-purple-700 text-white flex  items-center justify-center px-6">
+  <section v-if="showFormSection" class="min-h-screen bg-gradient-to-br from-blue-800 to-purple-700 text-white flex  items-center justify-center px-6">
     <div class="w-full max-w-4xl h-[500px] overflow-hidden shadow">
       <MapView :points="mapPoints" />
     </div>
@@ -156,6 +156,7 @@ const started = ref(false)
 const formSection = ref(null)
 const selectedStart = ref('');
 const selectedEnd = ref('');
+const showFormSection = ref(false)
 
 function scrollToForm() {
   started.value = true
@@ -324,9 +325,9 @@ export default {
     this.fetchStops();
     const transfersReady = await this.fetchTransfers();
     if (transfersReady) {
-      await this.fetchLines(); // cela appellera ensuite buildGraph automatiquement
+      await this.fetchLines();
     }
-    // Ajout temporaire de points pour la carte
+    
     this.mapPoints = [
       { lat: 48.8566, lng: 2.3522 },
       { lat: 48.8738, lng: 2.2950 },
